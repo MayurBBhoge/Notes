@@ -1,0 +1,611 @@
+WebDriver IO
+
+=====================================================================================================================================
+26th April
+
+Describe('First Script for WDIO', () => {
+
+    xit('Get browser methods', async () => {
+
+        await browser.url('https://www.saucedemo.com/');
+        var title = await browser.getTitle();
+        console.log("Title of the page is :- " + title);
+        console.log('Current url of the page is :- '+ await browser.getUrl());
+        console.log('Page Source of the page is :- '+ await browser.getPageSource());
+        await browser.pause(10000);
+    })
+
+    xit('navigate commands', async () => {
+
+        await browser.url('https://www.saucedemo.com/');
+        await browser.pause(3000);
+        await browser.navigateTo('https://webdriver.io/');
+        await browser.pause(3000);
+        await browser.back();
+        await browser.pause(3000);
+        await browser.forward();
+        await browser.pause(3000);
+        await browser.refresh();
+        await browser.pause(10000);
+    })
+
+    xit('browsers commands', async () => {
+
+        await browser.url('https://www.saucedemo.com/');
+        await browser.pause(3000);
+        await browser.maximizeWindow();
+        await browser.pause(3000);
+        await browser.minimizeWindow();
+        await browser.pause(3000);
+        await browser.fullscreenWindow();
+        await browser.pause(3000);
+
+    })
+
+    xit('Window size and Position', async () => {
+
+        await browser.url('https://www.saucedemo.com/');
+        await browser.pause(3000);
+        console.log(await browser.getWindowSize());
+        await browser.pause(3000);
+        await browser.setWindowSize(1000,500);
+        await browser.pause(3000);
+        console.log(await browser.getWindowRect());
+        await browser.setWindowRect(1000,500,500,500);
+        await browser.pause(10000);
+
+    })
+
+} )
+
+------------------------------------------------------------------------------------
+
+describe('First Script for WDIO', () => {
+
+    it('Get browser methods', async () => {
+
+        await browser.url('https://www.saucedemo.com/');
+        await browser.maximizeWindow();
+        await browser.pause(3000);
+
+        var username_txtbox = await $('#user-name');
+        await username_txtbox.setValue("standard_user");
+        await browser.pause(3000);
+
+        var password_txtbox = await $('#password');
+        await password_txtbox.setValue("secret_sauce");
+        await browser.pause(3000);
+
+        var login_btn = await $('.submit-button btn_action');
+        await login_btn.click();
+        await browser.pause(3000);
+    })
+} )
+
+====================================================================================================
+
+30th April
+
+describe('First Script for WDIO', () => {
+
+    xit('Locators Techniques - 1', async () => {
+
+        await browser.url('https://www.saucedemo.com/');
+        await browser.maximizeWindow();
+        await browser.pause(3000);
+
+        var username_txtbox = await $('#user-name');
+        await username_txtbox.setValue("standard_user");
+        await browser.pause(3000);
+
+        var password_txtbox = await $('#password');
+        await password_txtbox.setValue("secret_sauce");
+        await browser.pause(3000);
+
+        var login_btn = await $('[name="login-button"]');
+        await login_btn.click();
+        await browser.pause(3000);
+    })
+
+    xit('Locators Techniques - 2', async () => {
+
+        await browser.url('https://www.facebook.com/');
+        await browser.maximizeWindow();
+        await browser.pause(3000);
+
+        // var fp_link = await $('=Forgotten password?');
+        var fp_link = await $('*=otten pas');
+        await fp_link.click();
+        await browser.pause(3000);
+    })
+
+    xit('Locators Techniques - 3', async () => {
+
+        await browser.url('https://www.saucedemo.com/');
+        await browser.maximizeWindow();
+        await browser.pause(3000);
+
+        // var h4_element = await $('h4=Accepted usernames are:');
+        var h4_element = await $('h4*=Accepted user');
+        var text = await h4_element.getText();
+        console.log(text);
+    })
+} )
+
+----------------------------------------------------------------------------------------------------
+
+describe('First Script for WDIO', () => {
+
+    it('Xpath Locator -1 ', async () => {
+
+        await browser.url('https://www.facebook.com/');
+        await browser.maximizeWindow();
+        await browser.pause(3000);
+
+        var email_textbox = await $("//input[@id='email']");
+        email_textbox.setValue("david@gmail.com");
+        await browser.pause(3000);
+
+        var password_textbox = await $("//input[@class='inputtext _55r1 _6luy _9npi']");
+        password_textbox.setValue("hdgsugfuwhe");
+        await browser.pause(3000);
+
+        var login_btn = await $('//button[text()="Log in"]');
+        await login_btn.click();
+        await browser.pause(3000);
+    })
+
+   
+
+} )
+
+========================================================================================================
+
+5th May
+
+describe('First Script for WDIO', () => {
+
+    xit('Locators Techniques - 5', async () => {
+
+        await browser.url('https://stqatools.com/demo/Register.php');
+        await browser.maximizeWindow();
+        await browser.pause(3000);
+
+        var name_txtbox = await $("//input[contains(@placeholder,'your name')]");
+        await name_txtbox.setValue("David Miller");
+        await browser.pause(3000);
+    })
+
+    it('Element Operations -1 ', async () => {
+
+        await browser.url('https://www.facebook.com/');
+        await browser.maximizeWindow();
+        await browser.pause(3000);
+
+        var element = await $("//h2[@class='_8eso']");
+        var text =  await element.getText();
+        console.log(text);
+        await browser.pause(3000);
+
+       var email_txtbox = await $("//input[@id='email']");
+       await email_txtbox.setValue("David");
+       await browser.pause(3000);
+       await email_txtbox.addValue("123@gmail.com");
+       await browser.pause(3000);
+
+       var login_btn = await $("//button[contains(text(),'Log in')]")
+       var status = await login_btn.isDisplayed();
+       console.log(status)
+
+       if(status)
+        {
+            login_btn.click();
+        }
+    })
+} )
+
+---------------------------------------------------------------------------
+
+to resolve browser and $ issue
+
+tsc --init 
+
+ "types": [ "node", "@wdio/globals/types", "@wdio/mocha-framework", "expect-webdriverio" ], 
+    "target": "es2019", 
+    "moduleResolution": "Node"
+
+======================================================================================================
+
+6th May
+
+describe('First Script for WDIO', () => {
+
+    it('iFrame Handling - 1', async () => {
+
+        await browser.url('https://chercher.tech/practice/frames');
+        await browser.maximizeWindow();
+        await browser.pause(3000);
+
+        var ele1 = await $("//label[1]");
+        var text = await ele1.getText();
+        console.log(text);
+
+        await browser.switchToFrame(0);
+        var ele2 = await $("//input[@type='text']");
+        await ele2.setValue("English");
+        await browser.pause(3000);
+
+        // await browser.switchToParentFrame();
+        await browser.switchToFrame(null);
+        await browser.pause(3000);
+
+        var f1 = await $("//iframe[@id='frame2']");
+        await browser.switchToFrame(f1);
+
+        var ele3 = await $("//select[@id='animals']");
+        await ele3.selectByVisibleText("Avatar");
+        await browser.pause(3000);
+
+    })
+})
+
+==================================================================================================================
+
+7th May
+
+describe('First Script for WDIO', () => {
+
+    xit('Mouse Opeartion - 1', async () => {
+
+        await browser.url('https://stqatools.com/demo/DoubleClick.php');
+        await browser.maximizeWindow();
+        await browser.pause(3000);
+
+        // var interaction_link = await $("//a[contains(text(),'Interactions')]");
+        // await interaction_link.click;
+        // await browser.pause(3000);
+
+        // var d_link = await $("//a[contains(text(),'Double Click')]");
+        // await d_link.click;
+        // await browser.pause(3000);
+
+        var element = await $("//button[text()='Click Me / Double Click Me!']");
+        await element.doubleClick();
+        await browser.pause(3000);
+    })
+
+    xit('Mouse Opeartion - 2', async () => {
+
+        await browser.url('https://www.browserstack.com/');
+        await browser.maximizeWindow();
+        await browser.pause(3000);
+
+        var developer_link = await $("//button[text()='Developers']");
+        developer_link.moveTo();
+        await browser.pause(3000);
+
+        var doc_link = await $("//span[text()='Documentation']");
+        await doc_link.click();
+        await browser.pause(3000);
+
+    })
+
+    it('Mouse Opeartion - 3', async () => {
+
+        await browser.url('https://jqueryui.com/droppable/');
+        await browser.maximizeWindow();
+        await browser.pause(3000);
+
+        var iframe_1 = await $("//iframe[@class='demo-frame']");
+        browser.switchToFrame(iframe_1);
+
+        var src = await $("//div[@id='draggable']");      
+        var des = await $("//div[@id='droppable']");
+        await browser.pause(3000);
+
+        src.dragAndDrop(des);
+        await browser.pause(3000);
+
+    })
+        
+})
+
+================================================================================================================================
+
+9th May
+
+describe('First Script for WDIO', () => {
+
+    xit('Alert Popup Opeartion - 1', async () => {
+
+        await browser.url('https://stqatools.com/demo/Alerts.php');
+        await browser.maximizeWindow();
+        await browser.pause(3000);
+
+        var basic_alert_btn = await $("//button[@id='jbalert']");
+        await basic_alert_btn.click();
+        await browser.pause(3000);
+        browser.acceptAlert();
+        await browser.pause(3000);
+
+        var confirm_alert_btn = await $("//button[@id='jcalert']");
+        await confirm_alert_btn.click();
+        await browser.pause(3000);
+        var text1 = await browser.getAlertText();
+        console.log(text1);
+        browser.dismissAlert();
+        await browser.pause(3000);
+
+        var prompt_alert_btn = await $("//button[@id='jpalert']");
+        await prompt_alert_btn.click();
+        await browser.pause(3000);
+        await browser.sendAlertText("Hello World");
+        await browser.pause(3000);
+        browser.acceptAlert();
+        await browser.pause(3000);
+    })
+
+    it('Window Popup Opeartion - 1', async () => {
+
+        await browser.url('https://stqatools.com/demo/Windows.php');
+        await browser.maximizeWindow();
+        await browser.pause(3000);
+
+        var element1 = await $("(//button[@class='btn btn-info'])[1]");
+        await element1.click();
+        await browser.pause(3000);
+        var title = await browser.getTitle();
+        console.log(title);
+        await browser.pause(3000);
+
+        var p_id = await browser.getWindowHandle();
+        console.log("Parent ID :- " + p_id);
+
+        var c_ids = await browser.getWindowHandles();
+        console.log("Child IDs :- " + c_ids);
+        await browser.pause(3000);
+
+        await browser.switchToWindow(c_ids[1]);
+        var title = await browser.getTitle();
+        console.log(title);
+
+        var element2 = await $("(//span[text()='Selenium'])[1]");
+        await element2.click();
+        await browser.pause(3000);
+    })
+
+})
+
+================================================================================================================================
+
+22nd May
+
+Cucumber Framework - \
+
+
+		1. Create project workspace 
+		2. npm init -y
+		3. npm i --save-dev @wdio/cli
+		4. npx wdio config 
+				Answer all questions 
+		5. run project 
+				npm run wdio
+		6. Install cucumber plugins 
+					Cucumber wih vs code 
+					Cucumber full supoort 
+
+		7. Create project structure 
+
+					src 
+						main
+							pageObjects
+							utility
+						test
+							features
+							step-definitions
+
+============================================================================================================================================
+
+24th May
+
+Cucumber Framework - \
+
+
+		1. Create project workspace 
+		2. npm init -y
+		3. npm i --save-dev @wdio/cli
+		4. npx wdio config 
+				Answer all questions 
+		5. run project 
+				npm run wdio
+		6. Install cucumber plugins 
+					Cucumber wih vs code 
+					Cucumber full supoort 
+
+		7. Create project structure 
+
+					src 
+						main
+							pageObjects
+							utility
+						test
+							features
+							step-definitions
+
+		8. Create one folder as .vscode and file as settings.json 
+
+				{
+				    "cucumberautocomplete.steps": [
+				        "src/test/step-definitions/*/.ts"
+				    ],
+				    "cucumberautocomplete.syncfeatures": "src/test/features/*/.feature",
+				    "cucumberautocomplete.strictGherkinCompletion": true,
+				    "workbench.preferredDarkColorTheme": "Default Dark Modern",
+				    "workbench.colorTheme": "Default Dark Modern",
+				    "workbench.preferredHighContrastColorTheme": "Default Dark Modern",
+				    "workbench.preferredHighContrastLightColorTheme": "Default Dark Modern",
+				}
+
+===========================================================================================================================
+
+29th May
+
+export class Registerpage {
+
+    public async enterFirstname(firstname: string) {
+        const firstname_txtbox = await $("//input[@id='FirstName']");
+        await firstname_txtbox.setValue(firstname);
+    }
+
+    public async enterLastname(lastname: string) {
+        const lastname_txtbox = await $("//input[@id='LastName']");
+        await lastname_txtbox.setValue(lastname);
+    }
+
+    public async enterEmailAddress(email: string) {
+        const email_txtbox = await $("//input[@id='Email']");
+        await email_txtbox.setValue(email);
+    }
+
+    public async enterCompanyName(companyName: string) {
+        const company_txtbox = await $("//input[@id='Company']");
+        await company_txtbox.setValue(companyName);
+    }
+
+    public async enterPassword(password: string) {
+        const password_txtbox = await $("//input[@id='Password']");
+        await password_txtbox.setValue(password);
+    }
+
+    public async enterConfirmPassword(confirmpassword: string) {
+        const confirmpassword_txtbox = await $("//input[@id='ConfirmPassword']");
+        await confirmpassword_txtbox.setValue(confirmpassword);
+    }
+
+    public async selectGender(gender: string) {
+
+        if(gender==="Male") {
+            const male_radio = await $("//input[@id='gender-male']");
+            await male_radio.click();
+        }
+        else {
+            const female_radio = await $("//input[@id='gender-female']");
+            await female_radio.click();
+        }
+    }
+
+    public async selectDOB(date: string, month: string, year: string) {
+        const date_dropdown = await $("//select[@name='DateOfBirthDay']")
+        await date_dropdown.selectByVisibleText(date);
+        const month_dropdown = await $("//select[@name='DateOfBirthMonth']");
+        await month_dropdown.selectByVisibleText(month);
+        const year_dropdown = await $("//select[@name='DateOfBirthYear']")
+        await year_dropdown.selectByVisibleText(year);
+    }
+
+    
+    public async clickOnRegisterButton() {
+        var register_btn = await $("//button[@id='register-button']");
+        await register_btn.click();
+    }
+
+    public async getStatusMessage() {
+        const message = await $("//div[@class='result']");
+        var me = await message.getText();
+        return me;
+    }
+}
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+export class Loginpage {
+
+    public async enterEmailAddress(email: string) {
+        const email_txtbox = await $("//input[@id='Email']");
+        await email_txtbox.setValue(email);
+    }
+
+    public async enterPassword(password: string) {
+        const password_txtbox = await $("//input[@id='Password']");
+        await password_txtbox.setValue(password);
+    }
+
+    public async clickOnLoginButton() {
+        const login_btn = await $("//button[contains(text(),'Log in')]");
+        login_btn.click();
+    }
+}
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+import { Given, When, Then } from "@wdio/cucumber-framework"; 
+import { Homepage } from "../../main/pageObjects/homepage";
+import { Registerpage } from "../../main/pageObjects/registerpage";
+import { Loginpage } from "../../main/pageObjects/loginpage";
+
+const homepage_obj = new Homepage();
+const registerpage_obj = new Registerpage();
+const loginpage_obj = new Loginpage();
+
+
+Given('user is on the home page', async () => {
+    await browser.url('https://demo.nopcommerce.com/');
+    await browser.maximizeWindow();
+})
+
+When('user clicks on register link', async () => {
+    await homepage_obj.clickOnRegisterLink();
+})
+
+When('user enters firstname {string} and lastname {string} and email {string} and comname {string} and password {string} and confirm password {string}', async (firstname, lastname, email, comName, password, confirmpassword) => {
+    
+    await registerpage_obj.enterFirstname(firstname);
+    await registerpage_obj.enterLastname(lastname);
+    await registerpage_obj.enterEmailAddress(email);
+    await registerpage_obj.enterCompanyName(comName);
+    await registerpage_obj.enterPassword(password);
+    await registerpage_obj.enterConfirmPassword(confirmpassword);
+
+})
+
+When('user selects gender as {string} and DOB as {string} {string} {string}', async (gender, date, month, year) => {
+    await registerpage_obj.selectGender(gender);
+    await registerpage_obj.selectDOB(date,month,year);
+})
+
+When('user clicks on register button', async () => {
+    await registerpage_obj.clickOnRegisterButton;
+})
+
+
+When('pause for {int} seconds while execution', async (time: number) => {
+    await browser.pause(time*1000)
+})
+
+Then('user should see message as {string}', async (expected_message: string) => {
+    const actual_message = await registerpage_obj.getStatusMessage();
+    expect(actual_message).toEqual(expected_message);
+})
+
+When('user clicks on login link', async () => {
+    await homepage_obj.clickOnLoginLink();
+})
+
+When('user enter login details as {string} and {string}', async (email: string, password: string) => {
+    await loginpage_obj.enterEmailAddress(email);
+    await loginpage_obj.enterPassword(password);
+})
+
+When('user click the Login button', async () => {
+    await loginpage_obj.clickOnLoginButton();
+})
+
+============================================================================================================================
+
+4th June
+
+Webdriver setup
+
+https://dzone.com/articles/webdriverio-integration-with-cucumber
+
+============================================================================================================================
