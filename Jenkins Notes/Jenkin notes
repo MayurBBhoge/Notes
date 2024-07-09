@@ -1,0 +1,36 @@
+Jenkins notes
+=======================================================================================================================================
+
+30th March
+
+Continuous integration - 
+
+				1. Three teams - dev team, qa team, devops 
+				2. dev team implements code wrt requiremenet 
+				3. QA team will write automation testcases 
+				4. Both team will push there code on github (Repo)
+				5. After dev team push there code on github, devops team will create build and testcases will execute on that build 
+				6. further testing 
+
+		Jenkins 
+
+				1. In org. we dont install Jeknins in our machine 
+				2. devops will install jenkins on server 
+				3. devops will share the url 
+
+
+		Install Jenkins - 
+
+
+
+		How run testcases from jenkins locally 
+
+		Way1 - Free style project 
+
+			1. Click on new iteam >> Enter name >> Select FreeStyle Project
+
+=======================================================================================================================================
+
+
+
+

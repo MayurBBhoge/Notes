@@ -1,0 +1,1802 @@
+Selenium notes
+======================================================================================================================================
+5th Feb
+
+https://www.scientecheasy.com/2020/07/selenium-automation-testing.html/
+
+======================================================================================================================================
+
+8th Feb 
+
+How to add jar files in project 
+
+	1. Visit https://www.selenium.dev/downloads/
+	2. Download latest version of selenium - 4.17.0
+	3. Unzip your folder and Copy and Paste in specfic location 
+
+
+	1. Right click on project >> Properties >> Java Build path >> Library >
+	2. Click on classpath >> Add External jars >> Ctrl + A
+	3. Apply and close
+
+------------------------------------------------------------------------
+
+package seleniumBasic;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class FirstProgram {
+
+	public static void main(String[] args) {
+		
+		WebDriver driver = new ChromeDriver();
+		
+		driver.get("https://www.google.com/");
+	}
+}
+
+===========================================================================================================================================
+
+package seleniumBasic;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class FirstProgram {
+
+	public static void main(String[] args) {
+		
+		WebDriver driver = new ChromeDriver();
+		
+		driver.get("https://www.google.com/");
+		
+		String title = driver.getTitle();
+		System.out.println(title);
+		
+		String url = driver.getCurrentUrl();
+		System.out.println("Current url is :- " +url);
+		
+		String code = driver.getPageSource();
+		System.out.println(code);
+	}
+}
+
+---------------------------------------------------------------------------------
+
+package seleniumBasic;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class NavigationCommands {
+
+	public static void main(String[] args) throws InterruptedException {
+		
+		WebDriver driver = new ChromeDriver();
+		
+		driver.get("https://www.google.com/");
+		Thread.sleep(3000);
+		
+		//navigate commands - 
+		driver.navigate().to("https://www.facebook.com/");
+		Thread.sleep(3000);
+		
+		driver.navigate().back();
+		Thread.sleep(3000);
+		
+		driver.navigate().forward();
+		Thread.sleep(3000);
+		
+		driver.navigate().refresh();
+	}
+}
+
+---------------------------------------------------------------------------------------
+
+package seleniumBasic;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class BrowserCoomands {
+
+	public static void main(String[] args) throws InterruptedException {
+		
+		WebDriver driver = new ChromeDriver();
+		
+		driver.get("https://www.google.com/");
+		
+		//Browser commands 
+		Thread.sleep(3000);
+		driver.manage().window().maximize();
+		
+		
+		Thread.sleep(3000);
+		driver.manage().window().fullscreen();
+		
+		Thread.sleep(3000);
+		driver.manage().window().minimize();
+		
+		Thread.sleep(3000);
+		driver.quit();	
+	}
+}
+
+===========================================================================================================================================
+
+15th Feb
+
+Locator - 
+
+	- are nothing but these are techmiques used to find webelement from the webpage.
+
+	- to find webelements we will use below method - 
+
+		driver.findElement(locator);
+		driver.findElements(locator);
+
+	- locator - By - methods
+			By.method("value");
+
+				driver.findElement(By.method("value"));        - single webelement
+				driver.findElements(By.method("value"));       - multiple webelement 
+
+
+	Types - 
+
+		1. id 
+		2. name 
+		3. classname 
+		4. linkText
+		5. partialLinkText
+		6. Tagname
+		7. CSS Selector 
+		8. Xpath
+
+
+		sendKeys("text");
+		click();
+
+
+		1. id - locates element using id attribute 
+
+				WebElement ref_var = driver.findElement(By.id("value"));
+
+		2. name -  locates element using name attribute 
+
+				WebElement ref_var = driver.findElement(By.name("value"));
+
+		3. classname -  locates element using class attribute 
+
+				WebElement ref_var = driver.findElement(By.className("value"));
+
+		4. linkText - to handle links 
+
+				WebElement ref_var = driver.findElement(By.linkText("value"));
+
+		5. partialLinkText - to handle links 
+
+				WebElement ref_var = driver.findElement(By.partialLinkText("value"));
+
+
+- NoSuchElementException
+
+-----------------------------------------------------------------------------------------
+
+15th Feb 
+
+Assignment
+
+https://stqatools.com/demo/Register.php
+https://www.saucedemo.com/
+
+---------------------------------------------------------------------------------------------
+
+package locators;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class SQATools {
+
+	public static void main(String[] args) {
+		
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://stqatools.com/demo/Register.php");
+		driver.manage().window().maximize();
+		
+		//enter name 
+		WebElement name = driver.findElement(By.id("name"));
+		name.sendKeys("Harry Potter");
+		
+		//enter address 
+		WebElement address = driver.findElement(By.name("address"));
+		address.sendKeys("Shivaji Nagar, Pune");
+
+	}
+------------------------------------------------------------------------------------------------------
+
+package locators;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class SauceDemo {
+
+	public static void main(String[] args) {
+		
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.saucedemo.com/");
+		driver.manage().window().maximize();
+		
+		//enter username 
+		WebElement username_textbox = driver.findElement(By.id("user-name"));
+		username_textbox.sendKeys("standard_user");
+		
+		//enter password 
+		WebElement password_textbox = driver.findElement(By.name("password"));
+		password_textbox.sendKeys("secret_sauce");
+		
+		//click on login button 
+		WebElement login_button = driver.findElement(By.name("login-button"));
+		login_button.click();
+		
+		driver.quit();
+	}
+}
+
+----------------------------------------------------------------------------------------------------------------
+
+package locators;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class FaceBookLogin {
+
+	public static void main(String[] args) {
+		
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.facebook.com/");
+		driver.manage().window().maximize();
+		
+		//click on link 
+//		WebElement for_password_link = driver.findElement(By.linkText("Forgotten password?"));
+//		for_password_link.click();
+		
+		WebElement xyz = driver.findElement(By.partialLinkText("gotten pass"));
+		xyz.click();
+		
+	}
+}
+
+--------------------------------------------------------------------------------------------------
+15th Feb 
+
+https://www.way2automation.com/way2auto_jquery/registration.php#load_box
+
+============================================================================================================
+
+16th Feb
+
+package locators;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Amazon {
+
+public static void main(String[] args) {
+		
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.amazon.in/");
+		driver.manage().window().maximize();
+		
+		//search product
+		WebElement search_box = driver.findElement(By.xpath("/html[1]/body/div[1]/header/div/div[1]/div[2]/div/form/div[2]/div[1]/input"));
+		search_box.sendKeys("iPhone");
+	}
+}
+
+----------------------------------------------------------------------------------------
+
+package locators;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class SauceDemoxpath {
+
+	public static void main(String[] args) {
+		
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.saucedemo.com/");
+		driver.manage().window().maximize();
+		
+		//username 
+		WebElement username = driver.findElement(By.xpath("//input[@id='user-name']"));
+		username.sendKeys("standard_user");
+		
+		//password 
+		WebElement password = driver.findElement(By.xpath("//input[@placeholder='Password']"));
+		password.sendKeys("secret_sauce");
+		
+		WebElement button = driver.findElement(By.xpath("//input[@class='submit-button btn_action']"));
+		button.click();
+	}
+
+}
+
+-----------------------------------------------------------------------------------------------
+
+Date - 16 Feb 24
+
+8. Xpath - 
+
+		1. Absolute xpath 
+		2. Relative xpath 
+
+
+		1. Absolute xpath - 
+
+					- path from root element to targeted element without missung any element/tag in between.
+					- Absolute xpath start with '/'
+				Eg.
+					/html/body/center/form/input[1]
+					/html[1]/body/div[1]/header/div/div[1]/div[2]/div/form/div[2]/div[1]/input
+
+				Drawbacks 
+
+					1. full understanding of html coding 
+					2. ui changes - test script failure 
+
+		2. Relative xpath - 
+
+					//
+
+
+
+				xpath by using attribute - 
+
+					xpath = //tagname[@attribute = "value"]        // id, name, class, placeholder etc....
+
+				xpath by using text function - 
+
+					xpath = //tagname[text() = 'text_value']
+
+=========================================================================================================================
+
+19th Feb
+
+package locators;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class FaceBookLogin {
+
+	public static void main(String[] args) {
+		
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.facebook.com/");
+		driver.manage().window().maximize();
+		
+		//click on link 
+//		WebElement for_password_link = driver.findElement(By.linkText("Forgotten password?"));
+//		for_password_link.click();
+		
+//		WebElement xyz = driver.findElement(By.partialLinkText("gotten pass"));
+//		xyz.click();
+		
+//		WebElement abc = driver.findElement(By.xpath("//a[text()='Forgotten password?']"));
+//		abc.click();
+		
+		driver.findElement(By.xpath("//a[contains(text(),'en pa')]")).click();
+			
+	}
+}
+
+------------------------------------------------------------------------------------------------
+
+package locators;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Flipkart {
+
+	public static void main(String[] args) throws InterruptedException {
+
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.flipkart.com/");
+		driver.manage().window().maximize();
+		
+		//search product
+		driver.findElement(By.xpath("//input[@name='q']")).sendKeys("iPhone" + Keys.ENTER);
+		
+//		driver.findElement(By.xpath("(//div[contains(@class,'_4rR01T')])[1]")).click();
+		
+		//--------------------------------------------------------------------------------------
+		
+		List<WebElement> allproducts = driver.findElements(By.xpath("//div[contains(@class,'_4rR01T')]"));
+		
+		allproducts.get(23).click();
+		
+		String text = allproducts.get(0).getText();
+		System.out.println(text);
+
+		for(WebElement product:allproducts)
+		{
+			String text1 = product.getText();
+			System.out.println(text1);
+		}
+		
+	}
+
+}
+
+-------------------------------------------------------------------------------------------------------------
+
+package locators;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.locators.RelativeLocator;
+
+public class FBSignup2 {
+
+	public static void main(String[] args) {
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.facebook.com/reg/");
+		driver.manage().window().maximize();
+		
+		//firstname
+		WebElement firstname = driver.findElement(By.xpath("//input[contains(@id,'u_0_b_')]"));
+		firstname.sendKeys("David");
+		
+		//surname 
+		WebElement surname = driver.findElement(RelativeLocator.with(By.tagName("input")).toRightOf(firstname));
+		surname.sendKeys("Miller");
+		
+		//mobile no.
+		WebElement mobile_no = driver.findElement(RelativeLocator.with(By.tagName("input")).below(surname));
+		mobile_no.sendKeys("8669515522");
+		
+		//link 
+		WebElement link = driver.findElement(RelativeLocator.with(By.tagName("button")).below(mobile_no));
+		link.click();
+	}
+}
+
+---------------------------------------------------------------------------------------------------------
+
+org.openqa.selenium.NoSuchElementException
+
+
+u_0_b_IL
+u_0_b_cN
+u_0_b_TO
+
+	u_0_b_
+
+	1234test
+	1255test
+
+	54test544
+	53test526
+
+			2. xpath by contains keyword/function
+
+				xpath by using attribute - 
+
+					xpath = //tagname[contains(@attribute , 'value')]
+
+				xpath by using text - 
+
+					xpath = //tagname[contains(text(),'text_value')]
+
+					(//div[contains(@class,'_4rR01T')][1]
+
+
+Relative Locator - 
+
+Selenium 4 - Relative Locators
+
+The findElement method accepts a new method with(By) which returns a RelativeLocator
+above
+below
+toLeftOf
+toRightOf
+near
+
+WebElement loginButton = driver.findElement(By.id("btnLogin"));
+
+WebElement passwordTextBox = driver.findElement(RelativeLocator.with(By.tagName("input")).above(loginButton));
+
+===========================================================================================================================
+
+20th Feb
+
+package dropdownHandling;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class AmazonDropdown {
+
+	public static void main(String[] args) {
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.amazon.in/");
+		driver.manage().window().maximize();
+		
+		//handle dropdown - Electronics 
+		
+		WebElement cat = driver.findElement(By.xpath("//select[@id='searchDropdownBox']"));
+		
+		Select s = new Select(cat);
+		
+//		s.selectByIndex(16);
+//		s.selectByValue("search-alias=jewelry");
+		s.selectByVisibleText("Deals");
+		
+		List<WebElement> all = s.getOptions();
+		
+		for(WebElement xyz : all)
+		{
+			String option = xyz.getText();
+			System.out.println(option);
+		}
+		
+	}
+}
+
+----------------------------------------------------------------------------------------------------
+
+Handling of Dropdown/List box
+What is List box 
+•	Dropdown or List box is web element on webpage which have multiple options and as user need select one of them.
+•	In HTML, the dropdowns are generally implemented either using the <select> tag or the <input> tag.
+•	To perform certain operations on the dropdowns, which are declared using the <select> HTML tag, Selenium WebDriver provides a class called "Select "
+How to handle dropdown 
+1.	To handle dropdown, find web element and store it in the reference variable.
+2.	We have multiple options in dropdown and to select one of them, create object of Select class and pass ref in argument.
+3.	Now to select option from dropdown use one of the below method –
+
+====================================================================================================================================
+
+21st Feb
+
+Assignment
+https://chercher.tech/practice/frames
+
+=====================================================================================================================================
+
+21st Feb
+
+package iframeHanddling;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Form {
+
+	public static void main(String[] args) {
+		WebDriver driver = new ChromeDriver();
+		driver.get("file:///C:/Users/232338/OneDrive/Desktop/16Dec/Form.html");
+		driver.manage().window().maximize();
+		
+		//firstname
+		driver.findElement(By.xpath("//input[@id='36asgf']")).sendKeys("Harry");
+		
+		//change focus of selenium from main page to frame 
+//		driver.switchTo().frame(0);
+		driver.switchTo().frame("ifghjs");
+		
+		//city 
+		driver.findElement(By.xpath("//input[@id='dfshbd']")).sendKeys("Delhi");
+		
+		driver.switchTo().defaultContent();
+		
+		driver.findElement(By.xpath("//input[@id='dfji323']")).sendKeys("Potter");
+
+	}
+}
+
+-------------------------------------------------------------------------------------------------------------------
+
+package iframeHanddling;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Rediff {
+
+	public static void main(String[] args) {
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.rediff.com/");
+		driver.manage().window().maximize();
+		
+//		driver.switchTo().frame("moneyiframe");
+		
+		WebElement felement = driver.findElement(By.xpath("//iframe[@name='moneyiframe']"));
+		driver.switchTo().frame(felement);
+		
+		driver.findElement(By.xpath("//input[@id='query']")).sendKeys("Wirpo" + Keys.ENTER);
+
+	}
+
+}
+
+==================================================================================================================================
+
+22nd Feb
+
+package actionsTopic;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class Example1DC {
+
+	public static void main(String[] args) throws InterruptedException {
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://stqatools.com/demo/DoubleClick.php");
+		driver.manage().window().maximize();
+		
+		WebElement button = driver.findElement(By.xpath("//button[contains(text(),'Click Me / Double Click Me!')]"));
+		button.click();
+		
+		Thread.sleep(5000);
+		
+		Actions act = new Actions(driver);
+		act.doubleClick(button).build().perform();          //double click
+		
+		
+		
+		
+
+	}
+
+}
+
+--------------------------------------------------------------------------------------------------------------
+
+package dropdownHandling;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class BSMouseHover {
+
+	public static void main(String[] args) {
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.browserstack.com/");
+		driver.manage().window().maximize();
+
+		WebElement element = driver.findElement(By.xpath("//button[@id='developers-dd-toggle']"));
+		
+		Actions act = new Actions(driver);
+		act.moveToElement(element).build().perform();
+		
+		driver.findElement(By.xpath("//a[@title = 'Open Source']")).click();
+		
+		
+	}
+
+}
+
+=============================================================================================================================
+
+23rd Feb
+
+package actionsTopic;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class FlipKart {
+
+	public static void main(String[] args) {
+		
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.flipkart.com/");
+		driver.manage().window().maximize();
+		
+		Actions act = new Actions(driver);
+		
+		WebElement electronic = driver.findElement(By.xpath("//span[text()='Electronics']"));
+		act.moveToElement(electronic).build().perform();
+		
+		WebElement gaming = driver.findElement(By.xpath("//a[text()='Gaming']"));
+		act.moveToElement(gaming).build().perform();	
+		
+		WebElement gaming_mouse = driver.findElement(By.xpath("//a[text()='Gaming Mouse']"));
+		act.moveToElement(gaming_mouse).build().perform();	
+		gaming_mouse.click();
+			
+	}
+}
+
+---------------------------------------------------------------------------------------
+
+package actionsTopic;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class JqueryuiDropable {
+
+	public static void main(String[] args) {
+		
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://jqueryui.com/droppable/");
+		driver.manage().window().maximize();
+		
+		driver.switchTo().frame(0);
+		
+		WebElement src = driver.findElement(By.xpath("//div[@id='draggable']"));
+		WebElement des = driver.findElement(By.xpath("//div[@id='droppable']"));
+		
+		Actions act = new Actions(driver);
+		
+//		act.clickAndHold(src).moveToElement(des).release().build().perform();
+		
+		act.dragAndDrop(src, des).build().perform();
+		
+	}
+}
+
+------------------------------------------------------------------------------------------
+
+package screenshotCapture;
+
+import java.io.File;
+import java.io.IOException;
+
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.io.FileHandler;
+
+public class Google {
+
+	public static void main(String[] args) throws IOException {
+		
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.google.com/");
+		driver.manage().window().maximize();
+		
+		
+		//capture screenshot 
+		
+		TakesScreenshot ts = (TakesScreenshot)driver;
+		File src = ts.getScreenshotAs(OutputType.FILE);
+		
+		File des = new File("C:\\Users\\232338\\OneDrive\\Desktop\\16Dec\\SSSS\\google.png");
+		FileHandler.copy(src, des);
+		
+	}
+}
+
+===================================================================================================================================
+
+24th Feb
+
+package screenshotCapture;
+
+import java.io.File;
+import java.io.IOException;
+
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.io.FileHandler;
+import org.openqa.selenium.support.ui.Select;
+
+public class CommonSteps {
+
+	public static void captureScreenshot(WebDriver d,String filename) throws IOException         //d = driver =  new ChromeDriver();
+	{
+		TakesScreenshot ts = (TakesScreenshot)d;
+		File src = ts.getScreenshotAs(OutputType.FILE);
+		
+		File des = new File("C:\\Users\\232338\\OneDrive\\Desktop\\16Dec\\SSSS\\"+ filename +".png");
+		FileHandler.copy(src, des);
+	}
+	
+	//iframe handling 
+	
+	public static void switchToIframeByIndex(WebDriver driver,int index)
+	{
+		driver.switchTo().frame(index);
+	}
+	
+	public static void switchToIframeByIdORName(WebDriver driver,String value)
+	{
+		driver.switchTo().frame(value);
+	}
+	
+	public static void switchToParentPage(WebDriver driver)
+	{
+		driver.switchTo().parentFrame();
+	}
+	
+	public static void selectOptionFromDropdown(WebElement element,String text)
+	{
+		Select s = new Select(element);
+		s.selectByVisibleText(text);
+	}
+	
+	
+}
+
+-----------------------------------------------------------------------------------------------
+
+package screenshotCapture;
+
+import java.io.IOException;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Chercher {
+
+	public static void main(String[] args) throws IOException {
+		
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://chercher.tech/practice/frames");
+		driver.manage().window().maximize();
+		
+		//capture ss
+		CommonSteps.captureScreenshot(driver, "abc1");
+		CommonSteps.switchToIframeByIndex(driver, 0);
+		
+		driver.findElement(By.xpath("//input[@type='text']")).sendKeys("I am on this main frame");
+		CommonSteps.captureScreenshot(driver, "abc2");
+		
+		CommonSteps.switchToParentPage(driver);
+		
+		CommonSteps.switchToIframeByIdORName(driver, "frame2");
+		
+		WebElement animal = driver.findElement(By.xpath("//select[@id='animals']"));
+		CommonSteps.selectOptionFromDropdown(animal, "Avatar");
+		
+		CommonSteps.captureScreenshot(driver, "abc3");
+		
+	}
+}
+
+---------------------------------------------------------------------------------------------------------
+
+package screenshotCapture;
+
+import java.io.File;
+import java.io.IOException;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.io.FileHandler;
+
+public class Google2 {
+
+	public static void main(String[] args) throws IOException, InterruptedException {
+		
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.google.com/");
+		driver.manage().window().maximize();
+		
+		Google2.captureScreenshot(driver,"googlesearchpage");
+		
+		driver.findElement(By.xpath("//textarea[@name='q']")).sendKeys("Pushpa" + Keys.ENTER);		
+		
+		Thread.sleep(2000);
+
+		Google2.captureScreenshot(driver,"pushpasearch");
+		
+	}
+	
+	public static void captureScreenshot(WebDriver d,String filename) throws IOException         //d = driver =  new ChromeDriver();
+	{
+		TakesScreenshot ts = (TakesScreenshot)d;
+		File src = ts.getScreenshotAs(OutputType.FILE);
+		
+		File des = new File("C:\\Users\\232338\\OneDrive\\Desktop\\16Dec\\SSSS\\"+ filename +".png");
+		FileHandler.copy(src, des);
+	}
+	
+	
+}
+----------------------------------------------------------------------------------------------------------------
+
+24th Feb
+
+Assignment Compulsory- 
+
+1. Create utilities for dropdown, iframe, action class and screenshot handling in separate class 
+2. Try to use above util methods in other classes on any of the websites (for ref - https://chercher.tech/practice/frames)
+
+==================================================================================================================================
+
+26th Feb
+
+package popupHandling;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Example1 {
+
+	public static void main(String[] args) throws InterruptedException {
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.way2automation.com/way2auto_jquery/alert.php#load_box");
+		driver.manage().window().maximize();
+		
+		driver.findElement(By.xpath("//a[text()='Simple Alert']")).click();
+		
+		//switch to frame
+		WebElement iframe1 = driver.findElement(By.xpath("(//iframe[@class='demo-frame'])[1]"));
+		driver.switchTo().frame(iframe1);
+		
+		//
+		driver.findElement(By.xpath("//button[contains(text(),'alert box:')]")).click();
+		
+		Thread.sleep(2000);
+		
+		//handle popup 
+		String text = driver.switchTo().alert().getText();
+		System.out.println(text);
+		
+		driver.switchTo().alert().accept();
+		
+		//-----------------------------------------------------------------------------------------------
+		driver.switchTo().parentFrame();
+		
+		
+		driver.findElement(By.xpath("//a[text()='Input Alert']")).click();
+		
+		//switch to frame
+		WebElement iframe2 = driver.findElement(By.xpath("(//iframe[@class='demo-frame'])[2]"));
+		driver.switchTo().frame(iframe2);
+		
+		driver.findElement(By.xpath("//button[contains(text(),'Input box')]")).click();
+		
+		Thread.sleep(2000);
+		
+		driver.switchTo().alert().sendKeys("sdfajd");
+		
+		driver.switchTo().alert().accept();
+
+	}
+
+}
+
+------------------------------------------------------------------------------------------------------------
+
+27th Feb 
+
+package popupHandling;
+
+import java.util.ArrayList;
+import java.util.Set;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Flipkart {
+
+	public static void main(String[] args) throws InterruptedException {
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.flipkart.com/");
+		driver.manage().window().maximize();
+		
+		//search product
+		driver.findElement(By.xpath("//input[@name='q']")).sendKeys("iPhone" + Keys.ENTER);
+		driver.findElement(By.xpath("(//div[contains(@class,'_4rR01T')])[1]")).click();
+		
+		
+		//get ids 
+		String parent_id = driver.getWindowHandle();
+		System.out.println(parent_id);
+		
+		Set<String> all_ids = driver.getWindowHandles();
+		System.out.println(all_ids);
+		
+		ArrayList<String> al = new ArrayList<>(all_ids);
+		
+		System.out.println(al.get(0));
+		System.out.println(al.get(1));
+		
+		//-----------------------------------------------
+		
+		driver.switchTo().window(al.get(1));
+		System.out.println(driver.getTitle());
+		
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//button[text()='Add to cart']")).click();
+		
+		driver.switchTo().window(parent_id);
+		System.out.println(driver.getTitle());
+
+	}
+
+}
+
+---------------------------------------------------------------------------------------------------------
+
+package popupHandling;
+
+import java.util.ArrayList;
+import java.util.Set;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class OrangeHRM {
+
+	public static void main(String[] args) throws InterruptedException {
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+		driver.manage().window().maximize();
+		Thread.sleep(2000);
+		
+		driver.findElement(By.xpath("//a[text()='OrangeHRM, Inc']")).click();
+		System.out.println(driver.getTitle());
+		
+		//switch focus to window 
+		Set<String> all_ids = driver.getWindowHandles();
+		ArrayList<String> al = new ArrayList<>(all_ids);
+		
+		driver.switchTo().window(al.get(1));
+		System.out.println(driver.getTitle());
+		
+		//get about us title 
+		WebElement company_link = driver.findElement(By.xpath("//a[text()='Company']"));
+		
+		Actions act = new Actions(driver);
+		act.moveToElement(company_link).build().perform();
+		
+		driver.findElement(By.xpath("(//a[text()='About Us'])[1]")).click();
+		System.out.println(driver.getTitle());
+		
+		driver.close();
+		driver.switchTo().window(al.get(0));
+		
+		System.out.println(driver.getTitle());
+	}
+
+}
+
+=======================================================================================================================================
+
+28th Feb
+
+package popupHandling;
+
+import java.util.ArrayList;
+import java.util.Set;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class OrangeHRM {
+
+	public static void main(String[] args) throws InterruptedException {
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+		driver.manage().window().maximize();
+		Thread.sleep(2000);
+		
+		driver.findElement(By.xpath("//a[text()='OrangeHRM, Inc']")).click();
+		System.out.println(driver.getTitle());
+		
+		//switch focus to window 
+		Set<String> all_ids = driver.getWindowHandles();
+		ArrayList<String> al = new ArrayList<>(all_ids);
+		
+		driver.switchTo().window(al.get(1));
+		System.out.println(driver.getTitle());
+		
+		//get about us title 
+		WebElement company_link = driver.findElement(By.xpath("//a[text()='Company']"));
+		
+		Actions act = new Actions(driver);
+		act.moveToElement(company_link).build().perform();
+		
+		driver.findElement(By.xpath("(//a[text()='About Us'])[1]")).click();
+		System.out.println(driver.getTitle());
+		
+		driver.close();
+		driver.switchTo().window(al.get(0));
+		
+		System.out.println(driver.getTitle());
+	}
+
+}
+
+===========================================================================================================
+
+29th Feb
+
+package excelhanding;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+public class WriteDataInExcel {
+
+	public static void main(String[] args) throws IOException {
+		
+		String path = "C:\\Users\\232338\\OneDrive\\Desktop\\16Dec\\TestData.xlsx";
+		
+		File file = new File(path);		
+		FileInputStream fis = new FileInputStream(file);
+		XSSFWorkbook wb = new XSSFWorkbook(fis);
+		
+		XSSFSheet sheet = wb.getSheet("Sheet1");	
+		
+		XSSFRow row = sheet.getRow(1);
+		
+		XSSFCell cell = row.createCell(2);
+		cell.setCellValue("Pass");
+		
+		sheet.getRow(2).createCell(2).setCellValue("Fail");
+		
+		
+		FileOutputStream fos = new FileOutputStream(file);
+		wb.write(fos);
+
+	}
+
+}
+
+--------------------------------------------------------------------------
+
+package excelhanding;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+public class ExcelUtils {
+
+	public static String readData(String sheet_name, int row_num, int cell_num) throws IOException
+	{
+		String path = "C:\\Users\\232338\\OneDrive\\Desktop\\16Dec\\TestData.xlsx";
+		
+		File file = new File(path);		
+		FileInputStream fis = new FileInputStream(file);
+		XSSFWorkbook wb = new XSSFWorkbook(fis);
+		
+		XSSFSheet sheet = wb.getSheet(sheet_name);
+		
+		String data = sheet.getRow(row_num).getCell(cell_num).getStringCellValue();
+		
+		return data;
+	}
+	
+	public static void writeData(String sheet_name,int row_num,int cell_num,String data) throws IOException
+	{
+		String path = "C:\\Users\\232338\\OneDrive\\Desktop\\16Dec\\TestData.xlsx";
+		
+		File file = new File(path);		
+		FileInputStream fis = new FileInputStream(file);
+		XSSFWorkbook wb = new XSSFWorkbook(fis);
+		
+		XSSFSheet sheet = wb.getSheet(sheet_name);
+		
+		sheet.getRow(row_num).createCell(cell_num).setCellValue(data);
+		FileOutputStream fos = new FileOutputStream(file);
+		wb.write(fos);
+
+	}
+}
+
+=====================================================================================================
+
+1st March
+
+package waits;
+
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Example1 {
+
+	public static void main(String[] args) {
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://webdriveruniversity.com/Ajax-Loader/index.html");
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		
+		driver.findElement(By.xpath("//p[text()='CLICK ME!']")).click();
+	}
+
+}
+
+---------------------------------------------------------------------------
+
+package waits;
+
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class Example2 {
+
+	public static void main(String[] args) {
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://demoqa.com/alerts");
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		
+		driver.findElement(By.xpath("//button[@id='timerAlertButton']")).click();
+		
+		//explcit wait 
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));	
+		wait.until(ExpectedConditions.alertIsPresent());	
+		driver.switchTo().alert().accept();
+		
+	}
+}
+
+----------------------------------------------------------------------------------
+
+package waits;
+
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class Example3 {
+
+	public static void main(String[] args) {
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://demoblaze.com/index.html");
+		driver.manage().window().maximize();
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));	
+		
+		//-----------------------------------------------------------
+		driver.findElement(By.xpath("//a[@id='login2']")).click();
+		
+		WebElement username = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='loginusername']")));
+		username.sendKeys("testacc3");
+		
+		
+//		driver.findElement(By.xpath("//input[@id='loginusername']")).sendKeys("testacc3");
+		driver.findElement(By.xpath("//input[@id='loginpassword']")).sendKeys("test");
+		driver.findElement(By.xpath("//button[contains(text(),'Log in')]")).click();
+			
+		WebElement logout_link = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[contains(text(),'Log out')]")));
+		logout_link.click();
+		
+	}
+
+}
+
+--------------------------------------------------------------------------
+
+1st March
+
+Compulsory Assignments Question - Complete it before Monday session >>>
+	
+	To complete assignment you can use any website - 
+
+	1. Write selenium code to handle alerts and window popups in selenium			
+	2. Read and Write data from excel using POI. Use Excel utils
+	3. Write selenium code for implicit and Explicit wait (at least 3 methods)
+
+=======================================================================================================================
+
+4th March
+
+package pageLayer;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+public class Homepage {
+
+	private WebDriver driver;
+	public Homepage(WebDriver d) 
+	{
+		driver = d;
+	}
+	
+	public void clickOnLoginLink()
+	{
+		driver.findElement(By.xpath("//a[@id='login2']")).click();
+	}
+	
+}
+
+------------------------------------------------------------------------------------
+
+package pageLayer;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+public class Loginpage {
+
+	WebDriver driver;
+	public Loginpage(WebDriver d)
+	{
+		driver = d;
+	}
+	
+	public void enterUsername(String username)
+	{
+		driver.findElement(By.xpath("//input[@id='loginusername']")).sendKeys(username);
+	}
+	
+	public void enterPassword(String password)
+	{
+		driver.findElement(By.xpath("//input[@id='loginpassword']")).sendKeys(password);
+	}
+	
+	public void clickOnLoginButton()
+	{
+		driver.findElement(By.xpath("//button[contains(text(),'Log in')]")).click();
+	}
+}
+
+--------------------------------------------------------------------------------------------
+
+package testLayer;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import pageLayer.Homepage;
+import pageLayer.Loginpage;
+
+public class LoginTestCase {
+
+	public static void main(String[] args) {
+		
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://demoblaze.com/index.html#");
+		driver.manage().window().maximize();
+		
+		Homepage homepage_obj = new Homepage(driver);
+		Loginpage loginpage_obj = new Loginpage(driver);
+		
+		homepage_obj.clickOnLoginLink();
+		loginpage_obj.enterUsername("testacc3");
+		loginpage_obj.enterPassword("test");
+		loginpage_obj.clickOnLoginButton();
+		
+
+	}
+}
+
+--------------------------------------------------------------------------------------------------------------------
+
+Assignment - 
+1. Write signup testcase on demoblaze.com with POM concept
+
+===============================================================================================================
+
+Date - 04 March 24 
+
+Advanced Automation - 
+
+	1. POM 
+	2. Maven 
+	3. TestNG 
+	4. Framework - TDD 
+	5. Cucumber 
+	6. Framework - BDD 
+	7. Git and Github 
+
+
+	1. POM - 
+			Page Object Model, also known as POM,
+
+
+		1. For each web page in the application, there should be a corresponding Page Class.
+		2. These page classes contain all the web elements of that specific web page and action methods which perform operations on those WebElements.
+		3. We are going to use the encapsulation concept in which data members should be private and methods (member functions) as public.
+		4. We are going to create two packages
+				○ Page Layer - It contains web elements(Object Repository) and action methods
+				○ Test Layer - Test cases
+
+
+
+	Login testcases with valid cred 
+
+		1. open browser and paste url 
+		2. click on login link 
+		3. enter username, enter password and click on login button 
+		4. verify user logged in 
+
+	
+
+methodnmae - 
+
+		button - clickOn..Button 
+		link -   clickOn..Link
+		enter  - enter...
+
+		WebElement login_link = driver.findElement(login_link);
+		login_link.click();
+
+POM - 
+
+		1. Simple pom 
+				// ------------- Obj repo ---------------------------
+				
+				private By login_link = By.xpath("//a[@id='login2']");
+				
+				
+				// ------------------- action methods ------------------------
+				public void clickOnLoginLink()
+				{
+					driver.findElement(login_link).click();
+				}
+
+		2. Page factory 
+
+				@FindBy(xpath = "")
+				WebElement login_link;
+
+				public void clickOnLoginLink()
+				{
+					login_link.click();
+				}
+
+
+=====================================================================================================
+
+Date - 06 March 24
+
+Steps 
+
+	1. File >> New >> Project >> Maven >> Maven Project >> Next 
+	2. check create simple project >> Next 
+	3. Enter groupid and artifact id(project name) >> Finish 
+
+Maven - 
+
+	Maven is software project management tool and build automation tool.
+	It is hosted by the Apache Software Foundation in 13 July 2004. It was begin with the Jakarta Project.
+	Maven projects are configured using the POM (Project Object Model), which is stored in pom.xml file.
+	Maven dynamically downloads the Java libraries, maven plugins from one or more repositories and store them in local cache.
+
+
+	Adv - 
+		To build the project
+		To manage the project
+		To define the project structure
+		Test management
+		Dependency build
+
+	Project structure 
+
+		src/main/java 
+				paqelayer - pom
+		src/test/java
+				testlayer - testcases
+
+============================================================================================================================================
+
+7th March
+
+https://docs.google.com/document/d/1ymDGGwgzF6-kDvjlB3IU4SlukgrSe5-Hip2eUBaKPSI/edit?usp=sharing
+
+===========================================================================================================================================
+
+12th March
+
+https://naveenautomationlabs.com/opencart/index.php?route=common/home
+
+============================================================================================================================================
+
+20th March
+
+package com.opencart.utility;
+
+import java.io.File;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
+
+import org.testng.IReporter;
+import org.testng.IResultMap;
+import org.testng.ISuite;
+import org.testng.ISuiteResult;
+import org.testng.ITestContext;
+import org.testng.ITestResult;
+import org.testng.xml.XmlSuite;
+
+import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.ExtentTest;
+import com.relevantcodes.extentreports.LogStatus;
+
+public class ExtentReporterNG implements IReporter {
+    
+    private ExtentReports extent;
+
+    public void generateReport(List<XmlSuite> xmlSuites, List<ISuite> suites,String outputDirectory)
+    {
+   	 extent = new ExtentReports(outputDirectory + File.separator+ "Extent.html", true);
+
+   		 for (ISuite suite : suites)
+   		 {
+   			 Map<String, ISuiteResult> result = suite.getResults();
+    
+   			 for (ISuiteResult r : result.values())
+   			 {
+   				 ITestContext context = r.getTestContext();
+    
+   				 buildTestNodes(context.getPassedTests(), LogStatus.PASS);
+   				 buildTestNodes(context.getFailedTests(), LogStatus.FAIL);
+   				 buildTestNodes(context.getSkippedTests(), LogStatus.SKIP);
+   			 }
+   		 }
+
+   	 extent.flush();
+   	 extent.close();
+    }
+
+    private void buildTestNodes(IResultMap tests, LogStatus status) {
+   	 ExtentTest test;
+    
+   		 if (tests.size() > 0)
+   		 {
+   				 for (ITestResult result : tests.getAllResults())
+   				 {
+   					 test = extent.startTest(result.getMethod().getMethodName());
+   	 
+   					 test.setStartedTime(getTime(result.getStartMillis()));
+   					 test.setEndedTime(getTime(result.getEndMillis()));
+   	 
+   						 for (String group : result.getMethod().getGroups())
+   								test.assignCategory(group);
+   		 
+   						 if (result.getThrowable() != null)
+   						 {
+   							 test.log(status, result.getThrowable());
+   						 }
+   						 else
+   						 {
+   							 test.log(status, "Test " + status.toString().toLowerCase()+ "ed");
+   						 }
+   		 
+   						 extent.endTest(test);
+   				 }
+   		 }
+    }
+
+    private Date getTime(long millis)
+    {
+   		 Calendar calendar = Calendar.getInstance();
+   		 calendar.setTimeInMillis(millis);
+   		 return calendar.getTime();
+    }
+}
+
+--------------------------------------------------------------------------------------------------------
+
+log 4j code
+
+// Here we have defined root logger
+log4j.rootLogger=INFO,CONSOLE,R,HTML,TTCC
+ 
+// Here we define the appender
+log4j.appender.CONSOLE=org.apache.log4j.ConsoleAppender
+log4j.appender.R=org.apache.log4j.RollingFileAppender
+log4j.appender.TTCC=org.apache.log4j.RollingFileAppender
+log4j.appender.HTML=org.apache.log4j.FileAppender
+ 
+// Here we define log file location
+log4j.appender.R.File=./log/testlog.log
+log4j.appender.TTCC.File=./log/testlog1.log
+log4j.appender.HTML.File=./log/application.html
+ 
+// Here we define the layout and pattern
+log4j.appender.CONSOLE.layout=org.apache.log4j.PatternLayout
+log4j.appender.CONSOLE.layout.ConversionPattern= %5p [%t] (%F:%L)- %m%n
+log4j.appender.R.layout=org.apache.log4j.PatternLayout
+log4j.appender.R.layout.ConversionPattern=%d - %c -%p - %m%n
+log4j.appender.TTCC.layout=org.apache.log4j.TTCCLayout
+log4j.appender.TTCC.layout.DateFormat=ISO8601
+log4j.appender.HTML.layout=org.apache.log4j.HTMLLayout
+log4j.appender.HTML.layout.Title=Application log
+log4j.appender.HTML.layout.LocationInfo=true
+
+---------------------------------------------------------------------------------------------------------
+
+Github link for project
+
+https://github.com/MyGithub7777/OpencartTDDFramework
+
+============================================================================================
+
+21st March
+
+Install git
+
+https://phoenixnap.com/kb/how-to-install-git-windows
+
+=======================================================================================================================================
+
+29th March
+
+3 Phases
+
+	1. Implementation 
+	2. Execution 
+	3. Maintainance 
+
+
+	testng.xml 
+
+	Execution 
+
+			1. Run testcases with maven pom.xml 
+			2. Run testcases with cmd 
+			3. Run testcases with run.bat 
+			4. Run testcases with jenkins from local machine 
+
+		-------------------------------------
+			5. Run testcases with jenkins - from github 
+
+	Jenkins - 
+
+	1. Run testcases with maven pom.xml 
+
+		Steps 
+			1. open pom.xml 
+			2. add plugins - 
+					compiler plugin - It help us to compile the code 
+					surefire plugin - It help us to execute the code 
+					
+					 <plugin>
+			          <artifactId>maven-compiler-plugin</artifactId>
+			          <version>3.8.0</version>
+			        </plugin>
+				      <plugin>
+				        <groupId>org.apache.maven.plugins</groupId>
+				        <artifactId>maven-surefire-plugin</artifactId>
+				        <version>2.22.1</version>
+				        <configuration>
+				          <suiteXmlFiles>
+				            <suiteXmlFile>testng.xml</suiteXmlFile>
+				          </suiteXmlFiles>
+				        </configuration>
+				      </plugin>
+	       3. after adding plugin - maven update 
+	       4. Run as >> Maven Test
+
+	 2. Run testcases with cmd without using eclipse 
+
+	 			Maven 
+	 					Eclipse Plugin 
+	 					OS 
+
+	 		How to install maven 
+
+	 				1. Search maven download - https://dlcdn.apache.org/maven/maven-3/3.9.6/binaries/apache-maven-3.9.6-bin.zip
+	 				2. Extract 
+	 				3. Add this folder to C drive in Program files 
+	 				4. add env variables 
+	 						search env >> variables >> System Properties >> Env variables 
+
+ 								MAVEN_HOME C:\Program Files\apache-maven-3.9.5
+ 								M2_HOME    C:\Program Files\apache-maven-3.9.5
+
+ 								path - C:\Program Files\apache-maven-3.9.5\bin
+	 				5. to check - execute mvn -version 
+	 				
+	 				ALL GOOD 
+
+
+			Steps 
+
+					1. Open cmd 
+					2. Navigate cmd to project folder use cd foldername 
+					3. execute - mvn test 
+
+
+		3. Run testcases with run.bat (window - rat >> mac - sh)
+
+					1. Open project location 
+					2. Create one text doc and then rename as run.bat >> Accept popup i.e. Yes
+					3.  Navigate cmd to project folder use cd foldername 
+							cd path
+							mvn test 
+					4. on double clisk - execution will start
+
+
+=======================================================================================================================================
+
+29th March
+
+https://docs.google.com/document/d/1ymDGGwgzF6-kDvjlB3IU4SlukgrSe5-Hip2eUBaKPSI/edit
+
+=======================================================================================================================================
+

@@ -1,0 +1,943 @@
+Java Notes
+
+4th Jan
+
+    15. Java Program to Calculate the Sum of Natural Numbers
+    Assignments
+    1. Java Program to Find Factorial of a Number
+    2. Java Program to Generate Multiplication Table (1 to 10)
+    3. Java Program to Display Alphabets (A to Z) using loop
+    4. Java Program to Count Number of Digits in an Integer
+    5. Java Program to Reverse a Number
+    
+    
+    https://www.youtube.com/playlist?list=PLUDwpEzHYYLtgkXK6YaZ4I2XcsjMqIaEa
+
+=================================================================================================================================================
+
+8th Jan
+
+    package inheritance;
+    
+    public class Parent {
+    
+    	public void home()
+    	{
+    		System.out.println("Parent's home");
+    	}
+    	
+    	public void farm()
+    	{
+    		System.out.println("Parent's farm");
+    	}
+    	
+    	public void car()
+    	{
+    		System.out.println("Parent's car");
+    	}
+    }
+---------------------------------------------------
+
+    package inheritance;
+    
+    public class Child extends Parent {
+    
+    	public void bike()
+    	{
+    		System.out.println("Child's bike");
+    	}
+    	
+    	public void flat()
+    	{
+    		System.out.println("Child's flat");
+    	}
+    	
+    	public static void main(String[] args) {
+    		
+    		Child c = new Child();
+    		c.home();
+    		c.farm();
+    		c.car();
+    		
+    		c.bike();
+    		c.flat();
+    		
+    	}
+    }
+    
+    /*
+     * Parent p = new Parent();
+    	p.home();
+    	p.farm();
+    	p.car();
+    	
+	Child c = new Child();
+	c.bike();
+	c.flat();
+
+===================================================================================================================== 
+
+9th Jan
+
+    package polymorhism;
+    
+    public class Opeations {
+    
+    	public void add(int a, int b)
+    	{
+    		System.out.println(a+b);
+    	}
+    	
+    	public void add(double a, double b)
+    	{
+    		System.out.println(a+b);
+    	}
+    	
+    	public static void main(String[] args) {
+    		
+    		Opeations o = new Opeations();
+    
+    		
+    		o.add(10.3, 20.5);
+    		
+    		
+    	}
+    }
+
+---------------------------------------------
+
+    package polymorhism;
+    
+    public class Parent {
+    
+    	public void home()
+    	{
+    		System.out.println("Parent's home");
+    	}
+    	
+    	public void farm()
+    	{
+    		System.out.println("Parent's farm");
+    	}
+    	
+    	public void car()
+    	{
+    		System.out.println("Parent's car");
+    	}
+    }
+    
+    
+    package polymorhism;
+    
+    public class Child extends Parent {
+    
+    	public void car()
+    	{
+    		System.out.println("Child car");
+    	}
+    	
+    	public void flat()
+    	{
+    		System.out.println("Child flat");
+    	}
+    	
+    	public static void main(String[] args) {
+    		
+    		Child c = new Child();
+    		c.home();
+    		c.farm();
+    		
+    		c.car();
+    		
+    		Parent p = new Parent();
+    		p.car();
+    		
+    	}
+    }
+
+===============================================================================================================
+
+10th Jan
+
+Polymorphism - 
+
+		poly - multiple 
+		morphism - form (objects)
+
+
+		One objects can shows diff behaviour at diff stages of its life cycle as called Polymorphism.
+
+
+		Types 
+
+		1. Compile time Polymorphism
+		2. Run time Polymorphism 
+
+
+			Compile time  - checking of code 
+			Run time - execution of code 
+
+			Compile time error - Erros those occured on compile time
+			Run time error -     Erros those occured on run time 
+
+		1. Compile time Polymorphism - 
+
+					- Polymorphism which take place during compile time is known as Compile time Polymorphism.
+
+					- static binding or early binding 
+
+					- Eg. method overloading	
+
+						In a class 
+						multiple methods with same name but 
+						having diff argument 
+
+
+		2. Run time Polymorphism - 
+
+					- Polymorphism which take place during run time is known as Compile time Polymorphism.
+
+					- dynamic binding, late binding 
+
+					- Eg. method overriding - If we have 
+
+							diff classes
+							multiplr methods same name
+							same argument
+							inheritance
+
+===================================================================================================================================================
+
+15th Jan
+
+    package abstraction;
+    
+    public abstract class Vehicle {
+    
+    	public abstract void start();
+    	
+    	public abstract void stop();
+    	
+    	public abstract void wheels();
+    	
+    	public void testDrive()
+    	{
+    		System.out.println("Test Drive");
+    	}
+    	
+    }
+
+-------------------------------------------------------------------------------------
+    package abstraction;
+    
+    public class BMW extends Vehicle {
+    
+    	@Override
+    	public void start() {
+    		System.out.println("start method");
+    		
+    	}
+    
+    	@Override
+    	public void stop() {
+    		System.out.println("stop method");
+    		
+    	}
+    
+    	@Override
+    	public void wheels() {
+    		System.out.println("wheels method");
+    		
+    	}
+    	
+    	public static void main(String[] args) {
+    		
+    		BMW b = new BMW();
+    		b.start();
+    		b.stop();
+    		b.wheels();
+    		b.testDrive();
+    		
+    	}
+    
+    	
+    }
+
+Date - 15 Jan 23 
+
+Abstraction - 
+
+			- Abstraction is process of hiding the implementation code/details and showing only functionality to the end user. 
+			- Hiding internal functionality and showing external functionality to users.
+
+			Eg. ATM machine, SMS etc.
+
+
+			How to achive Abstraction?
+
+			1. Abstract class - 0 to 100%
+			2. Interface      - 100%
+
+
+1. Abstract class - 0 to 100% 
+
+		- A class which is declared with abstract keyword is known as Abstract class.
+				
+				public abstract class ClassName {
+
+				}
+
+		- Abstract methods and NonAbstract methods (incomplete or complete methods)
+
+				public abstract void methodName();
+
+		- Object creation of abstract class is not possible 
+
+
+		CONCRETE CLASS - 
+
+				A class which is respso to implement all abstract methods from abstract class.
+
+===================================================================================================================================
+
+16th Jan
+
+    package interfaceTopic;
+    
+    public interface Vehicle {
+    
+    	int a = 30;
+    	
+    	void start();
+    	
+    	void stop();
+    	
+    	void wheels();
+    	
+    }
+
+-----------------------------------------------------------------------------------
+
+    package interfaceTopic;
+    
+    public class Audi implements Vehicle {
+    
+    	@Override
+    	public void start() {
+    		System.out.println("start method");
+    		
+    	}
+    
+    	@Override
+    	public void stop() {
+    		System.out.println("stop method");
+    		
+    	}
+    
+    	@Override
+    	public void wheels() {
+    		System.out.println("wheels method");
+    		
+    	}
+    	
+    	public static void main(String[] args) {
+    		
+    		Audi a = new Audi();
+    		a.start();
+    		a.stop();
+    		a.wheels();
+    	}
+    		
+    }
+
+-------------------------------------------------------------------------------
+2. Interface   - 100%
+
+			- Interface is blueprint of class, which is used to to achieve abstraction and multiple inheritance 
+			- It consist of only abstract methods
+
+		How to delclare interface 
+
+				public interface InterfaceName {
+
+
+				}
+
+			1. Method declared inside interface have default public & abstract keywords
+			2. Variables declared inside interface have default public, static & final keywords 
+			3. Constructor concept is not available in interface 
+			4. Object creation of interface is not possible 
+
+
+		Implementation Class - 
+
+				A class which is respso to implement all abstract methods from interface.
+
+==================================================================================================================================
+
+17th Jan
+
+    package encapsulation;
+    
+    public class Bank {
+    
+    	private double balance = 20000;
+    	
+    	public void checkBalance()
+    	{
+    		System.out.println(balance);
+    	}
+    	
+    	public void deposit(double amount)
+    	{
+    		balance = balance + amount;
+    	}
+    	
+    	public void withdraw(double amount)
+    	{
+    		balance = balance - amount;
+    	}
+    
+    }
+--------------------------------------------------------------------------------------------
+    package encapsulation;
+    
+    public class MasterClass {
+    
+    	public static void main(String[] args) {
+    		
+    		Bank b = new Bank();
+    		b.checkBalance();
+    		
+    		b.deposit(10000);
+    		b.checkBalance();
+    		
+    		b.withdraw(15000);
+    		b.checkBalance();
+    		
+    		
+    	}
+    }
+========================================================================================================================
+17th Jan 24
+
+https://docs.google.com/document/d/1ymDGGwgzF6-kDvjlB3IU4SlukgrSe5-Hip2eUBaKPSI/edit?usp=sharing
+===========================================================================================================================
+19th Jan
+
+    package stringExamples;
+    
+    public class Example6 {
+    
+    	public static void main(String[] args) {
+    		
+    		String s = "My name is Khan";
+    		
+    		System.out.println(s);
+    		
+    		String[] x = s.split("\\s");
+    		
+    		System.out.println(x);
+    		
+    		System.out.println(x[3]);
+    		
+    		int l = x.length;
+    		System.out.println(l);
+    		
+    		for(int i=0;i<l;i++)
+    		{
+    			System.out.println(x[i]);
+    		}	
+    	}
+    }
+
+Mock result
+https://docs.google.com/spreadsheets/d/16a4LQPXNfngio5kWwucYy2g-q7ia59Bz/edit?usp=sharing&ouid=116276760450311517572&rtpof=true&sd=true
+=================================================================================================================================
+
+24th Jan
+
+    package listInterface;
+    
+    import java.util.ArrayList;
+    
+    public class Example1 {
+    
+    	public static void main(String[] args) {
+    		
+    		ArrayList al = new ArrayList<>();
+    		
+    		al.add("Mumbai");
+    		al.add("Pune");
+    		al.add("Delhi");
+    		al.add("Nagpur");
+    		al.add("Hyderbad");
+    		al.add("Pune");
+    		al.add(10);
+    		
+    		System.out.println(al);
+    			
+    		System.out.println(al.get(4));
+    		
+    		al.set(3, "Chennai");
+    		
+    		System.out.println(al);
+    		
+    		al.remove(2);
+    		
+    		System.out.println(al);
+    		
+    
+    	}
+    
+    }
+
+=====================================================================================================================================
+24th Jan
+
+https://docs.google.com/document/d/1ymDGGwgzF6-kDvjlB3IU4SlukgrSe5-Hip2eUBaKPSI/edit
+======================================================================================================================================
+
+29th Jan
+
+    package listInterface;
+    
+    import java.util.ArrayList;
+    import java.util.Iterator;
+    
+    public class Example5 {
+    
+    	public static void main(String[] args) {
+    			
+    			ArrayList<String> al = new ArrayList<>();
+    			
+    			al.add("Mumbai");
+    			al.add("Pune");
+    			al.add("Delhi");
+    			al.add("Nagpur");
+    			al.add("Hyderbad");
+    			al.add("Pune");
+    			al.add("Kolkata");
+    			al.add("Jaipur");
+    			
+    			System.out.println(al);
+    			
+    			Iterator<String> i = al.iterator();
+    			
+    			System.out.println(i.next());
+    			System.out.println(i.next());
+    			
+    			while(i.hasNext())
+    			{
+    				System.out.println(i.next());
+    			}
+    			
+    			//------------------------------------------------
+    			int count = al.size();
+    			System.out.println(count);
+    			
+    			for(int a=0;a<count ; a++)
+    			{
+    				System.out.println(al.get(a));
+    			}
+    			
+    			//---------------------------------------
+    			
+    			for(String x : al)
+    			{
+    				System.out.println(x);
+    			}
+    	}
+    }
+
+-------------------------------------------------------------------------
+    
+    package listInterface;
+    
+    import java.util.ArrayList;
+    
+    public class Example1 {
+    
+    	public static void main(String[] args) {
+    		
+    		ArrayList<String> al = new ArrayList<>();
+    		
+    		al.add("Mumbai");
+    		al.add("Pune");
+    		al.add("Delhi");
+    		al.add("Nagpur");
+    		al.add("Hyderbad");
+    		al.add("Pune");
+    		al.add(null);
+    		al.add(null);
+    		
+    		System.out.println(al);
+    			
+    		System.out.println(al.get(4));
+    		
+    		al.set(3, "Chennai");
+    		
+    		System.out.println(al);
+    		
+    		al.remove(2);
+    		
+    		System.out.println(al);
+    		
+    
+    	}
+    
+    }
+----------------------------------------------------------------------------------------------
+    package setInterfaceEx;
+    
+    import java.util.HashSet;
+    import java.util.Iterator;
+    
+    public class Example1 {
+    
+    	public static void main(String[] args) {
+    		
+    		HashSet<String> al = new HashSet<>();
+    		
+    		al.add("Mumbai");
+    		al.add("Pune");
+    		al.add("Delhi");
+    		al.add("Nagpur");
+    		al.add("Hyderbad");
+    		al.add("Pune");
+    		al.add("Kolkata");
+    		al.add("Jaipur");
+    		al.add(null);
+    		al.add(null);
+    		
+    		System.out.println(al);
+    		
+    		Iterator<String> xy = al.iterator();
+    		
+    		while(xy.hasNext())
+    		{
+    			System.out.println(xy.next());
+    		}
+    
+    		al.remove("Pune");
+    		System.out.println(al);
+    	
+    	}
+
+=====================================================================================================================================================
+
+30th Jan
+
+    package setInterfaceEx;
+    
+    import java.util.HashSet;
+    import java.util.Iterator;
+    import java.util.LinkedHashSet;
+    
+    public class Example2 {
+    
+    	public static void main(String[] args) {
+    		
+    		LinkedHashSet<Integer> lh = new LinkedHashSet<>();
+    		
+    		lh.add(20);
+    		lh.add(10);
+    		lh.add(30);
+    		lh.add(150);
+    		lh.add(120);
+    		lh.add(20);
+    		lh.add(250);
+    		
+    		System.out.println(lh);
+    		
+    		Iterator<Integer> x = lh.iterator();
+    		
+    		while(x.hasNext())
+    		{
+    			System.out.println(x.next());;
+    		}
+    		
+    		lh.remove(20);
+    		System.out.println(lh);
+    		
+    		lh.removeAll(lh);
+    		System.out.println(lh);
+    	
+    	}
+    }
+
+------------------------------------------------------------------------------------------------------------------
+
+    package setInterfaceEx;
+    
+    import java.util.HashSet;
+    import java.util.Iterator;
+    import java.util.LinkedHashSet;
+    import java.util.TreeSet;
+    
+    public class Example3 {
+    
+    	public static void main(String[] args) {
+    		
+    		TreeSet<Integer> lh = new TreeSet<>();
+    		
+    		lh.add(20);
+    		lh.add(10);
+    		lh.add(30);
+    		lh.add(150);
+    		lh.add(120);
+    		lh.add(20);
+    		lh.add(250);
+    		lh.add(25);
+    		lh.add(null);
+    		
+    		System.out.println(lh);
+    		
+    		
+    	
+    	}
+    }
+
+----------------------------------------------------------------
+    
+    package mapInterface;
+    
+    import java.util.HashMap;
+    
+    public class Example1 {
+    
+    	public static void main(String[] args) {
+    		
+    		HashMap<Integer,String> m = new HashMap<>();
+    		
+    		m.put(101, "David");
+    		m.put(102, "Smith");
+    		m.put(105, "Steve");
+    		m.put(103, "Jon");
+    		m.put(104, "Andrew");
+    			
+    		System.out.println(m);
+    		
+    		m.put(106, "Steve");
+    		
+    		m.put(null, "abc");
+    		m.put(null, "abcd");
+    		
+    		m.put(107, null);
+    		m.put(108, null);
+    		
+    		System.out.println(m);
+    		
+    		
+    	}
+    }
+
+==========================================================================================================================
+
+31st Jan 
+
+    package mapInterface;
+    
+    import java.util.HashMap;
+    import java.util.Map.Entry;
+    
+    public class Example1 {
+    
+    	public static void main(String[] args) {
+    		
+    		HashMap<Integer,String> m = new HashMap<>();
+    		
+    		m.put(101, "David");
+    		m.put(102, "Smith");
+    		m.put(105, "Steve");
+    		m.put(103, "Jon");
+    		m.put(104, "Andrew");
+    			
+    		System.out.println(m);
+    		
+    		m.put(106, "Steve");
+    		
+    		m.put(null, "abc");
+    		m.put(null, "abcd");
+    		
+    		m.put(107, null);
+    		m.put(108, null);
+    		
+    		System.out.println(m);
+    		
+    		System.out.println(m.get(106));
+    		
+    		System.out.println(m.entrySet());       // all value
+    		
+    		System.out.println(m.keySet());        // get all key
+    		
+    		System.out.println(m.values());         // get all values 
+    		
+    		for(Entry<Integer,String> entry : (m.entrySet()))
+    		{
+    			System.out.println(entry);
+    		}
+    		
+    		for(String abc :m.values())
+    		{
+    			System.out.println(abc);
+    		}
+    		
+    		m.replace(101, "Harry");	
+    		System.out.println(m);
+    		
+    		m.remove(102);
+    		System.out.println(m);
+    		
+    		
+    	}
+    }
+
+---------------------------------------------------------------------------
+    package mapInterface;
+    
+    import java.util.HashMap;
+    import java.util.LinkedHashMap;
+    import java.util.Map.Entry;
+    
+    public class Example2 {
+    
+    	public static void main(String[] args) {
+    		
+    		LinkedHashMap<Integer,String> lm = new LinkedHashMap<>();
+    		
+    		lm.put(1001, "Mumbai");
+    		lm.put(1002, "Pune");
+    		lm.put(1004, "Nagpur");
+    		lm.put(1003, "Thane");
+    		
+    		System.out.println(lm);
+    		
+    		//get element
+    		System.out.println(lm.get(1003));
+    		
+    		//remove element
+    		lm.remove(1004);
+    		System.out.println(lm);
+    		
+    		//update 
+    		lm.replace(1003, "Indore");
+    		System.out.println(lm);
+    		
+    		
+    	}
+    }
+
+----------------------------------------------------------
+
+    package mapInterface;
+    
+    import java.util.HashMap;
+    import java.util.LinkedHashMap;
+    import java.util.Map.Entry;
+    import java.util.TreeMap;
+    
+    public class Example3 {
+    
+    	public static void main(String[] args) {
+    		
+    		TreeMap<Integer,String> lm = new TreeMap<>();
+    		
+    		lm.put(1001, "Mumbai");
+    		lm.put(1002, "Pune");
+    		lm.put(1004, "Nagpur");
+    		lm.put(1003, "Thane");
+    		
+    		System.out.println(lm);
+    		
+    		lm.put(1005, "Thane");
+    		
+    		lm.put(999,  null);
+    		lm.put(998,  null);
+    		System.out.println(lm);
+    		
+    		//get element
+    		System.out.println(lm.get(1003));
+    				
+    		//remove element
+    		lm.remove(1004);
+    		System.out.println(lm);
+    				
+    		//update 
+    		lm.replace(1003, "Indore");
+    		System.out.println(lm);
+    		
+    	}
+    }
+
+----------------------------------------------------------------
+    package mapInterface;
+    
+    import java.util.HashMap;
+    import java.util.Hashtable;
+    import java.util.LinkedHashMap;
+    import java.util.Map.Entry;
+    import java.util.TreeMap;
+    
+    public class Example4 {
+    
+    	public static void main(String[] args) {
+    		
+    		Hashtable<Integer,String> lm = new Hashtable<>();
+    		
+    		lm.put(1001, "Mumbai");
+    		lm.put(1002, "Pune");
+    		lm.put(1004, "Nagpur");
+    		lm.put(1003, "Thane");
+    		
+    		System.out.println(lm);
+    		
+    		lm.put(1005, "Thane");
+    		
+    		System.out.println(lm);
+    		
+    
+    		//get element
+    		System.out.println(lm.get(1003));
+    				
+    		//remove element
+    		lm.remove(1004);
+    		System.out.println(lm);
+    				
+    		//update 
+    		lm.replace(1003, "Indore");
+    		System.out.println(lm);
+    	}
+    }
+====================================================================================================================================
+    package scannerEx;
+    
+    public class Example4 {
+    
+    	public static void main(String[] args) {
+    		
+    		// area of circle 
+    		double r = 20.2;	
+    		double area = Math.PI * r * r;	
+    		System.out.println("The area of circle = "+area);
+    	
+    		System.out.println(Math.E);
+    		
+    		int result = Math.addExact(10, 20);
+    		System.out.println(result);
+    		
+    		double r1 = Math.cbrt(27);
+    		System.out.println(r1);
+    		
+    		System.out.println(Math.max(20, 25));
+    		
+    		double r2 = Math.pow(2, 3);
+    		System.out.println(r2);
+    		
+    		System.out.println(Math.round(10.528455));
+    		
+    
+    	}
+    
+    }
+==============================================================================================================================

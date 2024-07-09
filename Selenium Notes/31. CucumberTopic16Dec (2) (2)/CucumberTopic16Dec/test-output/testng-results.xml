@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2024-03-27T09:22:09 IST" name="Default suite" finished-at="2024-03-27T09:22:49 IST" duration-ms="40087">
+    <groups>
+      <group name="cucumber">
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:cucumberOptions1.Runner1@1d2adfbe]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+      </group> <!-- cucumber -->
+    </groups>
+    <test started-at="2024-03-27T09:22:09 IST" name="Default test" finished-at="2024-03-27T09:22:49 IST" duration-ms="40087">
+      <class name="cucumberOptions1.Runner1">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:cucumberOptions1.Runner1@1d2adfbe]" started-at="2024-03-27T09:22:09 IST" name="setUpClass" finished-at="2024-03-27T09:22:09 IST" duration-ms="278" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@44de94c3]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:cucumberOptions1.Runner1@1d2adfbe]" started-at="2024-03-27T09:22:09 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-03-27T09:22:20 IST" duration-ms="11062" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["verify contact functionality"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["contact tests"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:cucumberOptions1.Runner1@1d2adfbe]" started-at="2024-03-27T09:22:20 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-03-27T09:22:29 IST" duration-ms="9020" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["verify contact functionality"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["contact tests"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:cucumberOptions1.Runner1@1d2adfbe]" started-at="2024-03-27T09:22:29 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-03-27T09:22:38 IST" duration-ms="8734" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["verify contact functionality"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["contact tests"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:cucumberOptions1.Runner1@1d2adfbe]" started-at="2024-03-27T09:22:38 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-03-27T09:22:49 IST" duration-ms="10949" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["verify contact functionality"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["contact tests"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:cucumberOptions1.Runner1@1d2adfbe]" started-at="2024-03-27T09:22:49 IST" name="tearDownClass" finished-at="2024-03-27T09:22:49 IST" duration-ms="3" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+      </class> <!-- cucumberOptions1.Runner1 -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

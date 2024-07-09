@@ -1,0 +1,37 @@
+Selenium Grid 
+
+Install Selenium Grid 
+ - https://www.selenium.dev/downloads/
+ - Downloaded Version 4.21.0
+
+Save above downloaded file in specific folder
+ Path - D:\Selenium Grid\selenium-server-4.21.0.jar
+
+Open Google chrome and Search 
+ - localhost:4444/grid/console   (It will not open because we have not started grid yet)
+
+Open cmd and type and enter
+ - java -jar D:\Selenium_Grid\selenium-server-4.21.0.jar hub
+
+Now refresh again the 
+ -  localhost:4444/grid/console  (Now it will open)
+
+
+How to save bat file to run selenium grid 
+ 1. Create notepad file 
+ 2. Copy and paste "java -jar D:\Selenium Grid\selenium-server-4.21.0.jar hub"
+ 3. Save file with name "hub.bat" and select save as type "All files"
+ 4. Click on save
+ 5. Run bat file 
+ 6. Open "localhost:4444/grid/console"
+
+
+ How to Add node (Run below command)
+
+ java -Dwebdriver.chrome.driver="D:\Chrome driver\chromedriver-win64\chromedriver.exe" -jar D:\Selenium_Grid\selenium-server-4.21.0.jar node --hub http://192.168.2.106:4444/grid/register
+
+
+ 
+
+
+
