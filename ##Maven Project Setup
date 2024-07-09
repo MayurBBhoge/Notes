@@ -1,0 +1,40 @@
+##Maven Project Setup
+
+  - 1. Search "maven repository" on google
+  - 2. Click on this link (https://mvnrepository.com/)
+  - 3. Search "selenium" in search bar
+  - 4. Click on "Selenium Java"
+  - 5. Cick on Latest Version (4.21.0)
+  - 6. Copy Maven code
+  - 7. Open Eclipse
+  - 8. Click on "file" -> Click on "New" -> Click on "Maven Project"
+  - 9. Click on "Next"
+  - 10. Search and select - "maven-archetype-quickstart" - 1.4 Version
+  - 11. Click on "Next"
+  - 12. Name "Group ID" and "Artifact Id"
+  - 13. Type "Y" in console
+  - 14. Open pom.xml
+  - 15. Paste selenium depedancy (From step 6) in between <dependencies> (From step 6) </dependencies>
+  - 16. Verify "Build Automatically" is checked (Path=> Project-> Build Automatically)
+
+
+ #Maven Project with TestNG dependency
+  - 1. Search "maven repository" on google
+  - 2. Click on this link (https://mvnrepository.com/)
+  - 3. Search "TestNG" in search bar
+  - 4. Click on "TestNG"
+  - 5. Cick on Latest Version (7.10.2)
+  - 6. Copy Maven code
+  - 7. Open Eclipse
+  - 8. Open pom.xml
+  - 9. Paste selenium depedancy (From step 6) in between <dependencies> (From step 6) </dependencies>
+  - 10. Verify "Build Automatically" is checked (Path=> Project-> Build Automatically)
+  - 11. Click on "Help" 
+  - 12. Click on "Eclipse MarketPlace"
+  - 13. Search "TestNG" in search bar
+  - 14. Install "TestNG for Eclipse"
+  - 15. Click on "Confirm"
+  - 16. Click on "I accept"
+  - 17. Click on "Finish"
+  - 18. Select Units and click on "Trust Selected" (Optional Step)
+  - 19. Restart Eclipse
