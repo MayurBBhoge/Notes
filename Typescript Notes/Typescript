@@ -1,0 +1,840 @@
+Typescript
+===========================================================================================================================
+
+2nd April
+
+Install Node js
+
+https://www.geeksforgeeks.org/installation-of-node-js-on-windows/
+
+--------------------------------------------------------------------------------
+
+Install VS code
+
+https://www.geeksforgeeks.org/how-to-install-visual-studio-code-on-windows/
+
+--------------------------------------------------------------------------------
+
+Typescript 
+			1. Intro 
+			2. Version - 5.x
+			3. How to use ts
+			4. adv
+			5. Disadv 
+			6. Features 
+
+	---------------------------------------
+
+	How to install node js 
+
+		1. search download node.js
+		2. https://nodejs.org/en/download - download 
+		3. double click on download file 
+		4. Next >> Accept Agreeement >> Next >> Next ... >> Finish 
+
+	Config of nodejs in ENv variables 
+
+		1. Copy the path of node js from c >> Program Files 
+		2. Paste it in Path popup 
+
+
+	How to check node js is installed or not 
+
+		1. node -v 
+		2. npm -v 
+
+	How to install VS code - 
+
+		1. search download vs code 
+		2. https://code.visualstudio.com/download - download 
+		3. double click on download file 
+		4. Next >> Accept Agreeement >> Next >> Next ... >> Finish 
+
+---------------------------------------------------------------------------------
+	Install TypeScript as an NPM
+		To install TypeScript, enter the following command in the Terminal Window
+		
+		➔ $ npm install -g typescript
+
+
+======================================================================================================================================
+
+3rd April
+
+var a = 100;
+var b = 16;
+console.log(a + b);
+console.log(a - b);
+console.log(a * b);
+console.log(a / b);
+console.log(a % b);
+console.log(a++);
+console.log(a--);
+console.log(a);
+
+-----------------------------------------------------
+
+var a = 20;
+var b = 16;
+console.log(a < b);
+console.log(a > b);
+console.log(a <= b);
+console.log(a >= b);
+console.log(a == b);
+console.log(a != b);
+
+-----------------------------------------------------
+
+console.log((20>10)&&(20>30));   // T && F = F
+
+console.log((20>10)||(20>30));   // T || F = T 
+
+// console.log((20>10)&&(20>30));   // T && F = F
+// console.log((20>10)||(20>30));   // T || F = T 
+// console.log((20>10)^(20>30));     // Not supporting
+
+-----------------------------------------------------
+
+var a = 10;
+console.log(a);
+
+var b: number = 100;
+console.log(b);
+
+var c: string = "Harry";
+console.log(c);
+
+var d: boolean = 10<15;
+console.log(d);
+
+var e: boolean = 10<15;
+console.log(e);
+
+var f: number = 1000;
+console.log(f);
+
+========================================================================================================================
+
+5th April
+
+// named function 
+
+function sample() {
+    console.log("Hello World");
+}
+
+sample();
+
+// named function with parameters
+
+function add(a: number, b: number) {
+    var c: number = a + b;
+    console.log(c);
+}
+
+add(10, 20);
+
+// named function with parameter and return type 
+
+function add1(a: number, b: number): number {
+    var c: number = a + b;
+    return c;
+}
+
+var result = add1(100,200);
+console.log(result);
+
+---------------------------------------------------------------------------------------------
+
+// Anonymous functions
+
+var greeting = function() {
+    console.log("Hello World");
+}
+
+greeting();
+
+// Anonymous functions with parameters
+
+var sum = function(a: number, b: number) {
+    var c = a + b;
+    console.log(c);
+}
+
+sum(100,200);
+
+// Anonymous functions with parameters and return type 
+
+var sum1 = function(a: number, b: number): number {
+    var c = a + b;
+    return c;
+}
+
+var result = sum1(50,60);
+console.log(result);
+
+----------------------------------------------------------------------------------------------------
+
+// Optional parameter - 
+function add2(a: number, b: number, d?: number) {
+    var c: number = a + b;
+    console.log(c);
+}
+
+add2(10, 20);
+
+// default parameter - 
+function add3(a: number, b: number = 100) {
+    var c: number = a + b;
+    console.log(c);
+}
+
+add3(10, 20);
+add3(50);
+
+---------------------------------------------------------------------------------------------------
+
+// arrow function - lambda Expression 
+
+var message = () => {
+    console.log("Hello World");
+}
+
+message();
+
+// arrow function with parameter 
+
+var mul = (a: number, b: number) => {
+    var c = a*b;
+    console.log(c);
+}
+
+mul(20,30);
+
+// arrow function with parameter and return type
+
+var mul1 = (a: number, b: number) => {
+    var c = a*b;
+    return c;
+}
+
+var result1 = mul1(30,30);
+console.log(result1);
+
+--------------------------------------------------------------------------------------------------------
+
+Functions - 
+				Functions are the fundamental building block of any applications that are used to perform specific tasks.
+
+		Functions are divided into two types:
+			1. Named function
+			2. Anonymous functions	
+
+
+	1. Named function
+		When we declare and call a function by its given name, then the function is known as a named function.
+
+			function functionName() {
+
+			}
+
+			functionName();
+
+	2. Anonymous functions - 
+
+			A function without a name is known as an anonymous function.
+			An anonymous function is one which is defined as an expression.
+			This expression is stored in a variable
+
+			var greeting = function() {
+
+			}
+
+
+	3. Optional 
+	4. Default 
+	5. Arrow function - 
+
+			var add = () => {
+
+			}
+--------------------------------------------------------------------------------------------------------
+
+5th April
+
+Assignment - Compulsory 
+
+	1. WAP using named function
+	2. WAP using anonymous function
+	3. WAP using arrow function
+
+==========================================================================================================================================
+
+6th April
+
+// classes 
+
+class Sample {
+
+    a: number = 10;
+    b: number = 20;
+}
+
+var obj = new Sample();
+console.log(obj.a);
+
+class Example1 {
+
+    a: number = 10;
+    b: number = 20;
+
+    sum() {
+        console.log(this.a+this.b);
+    }
+}
+
+var obj1 = new Example1();
+obj1.sum();
+
+// function with parameter
+
+class Sample1 {
+
+    sum(x:number, y: number): number {
+        return x + y;
+    }
+}
+
+var s1 = new Sample1();
+var result = s1.sum(10,20);
+console.log(result);
+
+---------------------------------------------------------------------------------------------
+
+class Example2 {
+
+    a: number;
+    b: number;
+
+    constructor() {
+        this.a = 30;
+        this.b = 50;
+        console.log("This is constructor calling - ");
+    }
+
+    mul(): number {
+        return this.a*this.b;
+    }
+
+}
+
+var e2 = new Example2();
+var r2 = e2.mul();
+console.log(r2);
+
+--------------------------------------------------------------------------------------------------
+
+8th April
+
+// WAP to log number from 1 to 10 
+
+class Sample1 {
+    
+    order() {
+
+        for(var i = 1; i<=10; i++) {
+            console.log(i);
+        }   
+    }
+}
+
+var obj1 = new Sample1();
+obj1.order();
+
+// WAP to find factorial number 
+
+class Sample2 {
+    num: number = 5;
+    fact: number = 1;
+
+    factorial() {
+
+        for(var i = 1; i<=this.num; i++) {
+            this.fact = this.fact * i;
+        }
+        console.log(The factorial for given number is ${this.fact});
+    }
+}
+
+var obj2 = new Sample2();
+obj2.factorial();
+
+// for .. of loop 
+
+class Sample3 {
+
+    num: number[] = [20,10,50,60,30];
+
+    getElementFronArray() {
+
+        for(var a of this.num) {
+            console.log(a);
+        }
+
+        for(var i=0; i<this.num.length; i++){
+            console.log(this.num[i]);
+        }
+    }
+}
+
+var obj3 = new Sample3();
+obj3.getElementFronArray();
+
+-------------------------------------------------------------------
+
+// WAP togreatest number 
+
+class Sample1 {
+
+    a: number = 3;
+
+    greatestNumber() {
+
+        if(this.a > 5) {
+            console.log("The given number is greater than 5");
+        }
+    }
+}
+
+var obj = new Sample1();
+obj.greatestNumber();
+
+// WAP to print even or odd number 
+
+class Sample2 {
+
+    num: number = 50;
+
+    evenAndOdd() {
+        
+        if(this.num % 2 == 0){
+            console.log("Even number");
+        }
+        else{
+            console.log("Odd number");
+        }
+    }
+}
+
+var obj1 = new Sample2();
+obj1.evenAndOdd();
+
+class Sample3 {
+
+    marks: number = 55;
+
+    gradeStatus() {
+
+        if((this.marks>75)&&(this.marks<=100))
+            {
+               console.log("Distinction");
+            }
+            else if( (this.marks>60)&&(this.marks<=75))
+            {
+                console.log("First class");
+            }
+            else if((this.marks>50)&&(this.marks<=60))
+            {
+                console.log("Second class");
+            }
+            else if((this.marks>35)&&(this.marks<=50))
+            {
+                console.log("Third class");
+            }
+            else if(this.marks>100)
+            {
+                console.log("Provide correct marks");
+            }
+            else
+            {
+                console.log("Failed");
+            }
+    }
+}
+
+var obj3 = new Sample3();
+obj3.gradeStatus();
+
+
+class Sample4 {
+
+    city: string = "Mumbai";
+
+    livingCity() {
+        switch(this.city) {
+            case "Pune": console.log("I from Pune");
+            break;
+            case "Delhi": console.log("I from Delhi");
+            break;
+            case "Mumbai": console.log("I from Mumbai");
+            break;
+            case "Hyderbad": console.log("I from Hyderbad");
+            break;
+            case "Nagpur": console.log("I from Nagpur");
+            break;
+            default: console.log("I from another city");
+        }
+    }
+}
+
+var obj4 = new Sample4();
+obj4.livingCity();
+
+===================================================================================================
+
+10th April
+
+var a: string = "Harry James Potter";
+
+var rev: string = "";
+var ch;
+
+    for(var i=0;i<a.length;i++)
+    {
+        ch = a.charAt(i);
+        rev = ch + rev;
+    }
+console.log(rev);
+
+
+var r5 = a.replace(" ","");
+var r6 = a.replace(" ","");
+console.log(r6);
+
+var s:string = "";
+    for(var i=0;i<a.length;i++)
+    {
+        ch = a.charAt(i);
+        
+        if(ch==" ")
+        {
+                ch = "";
+        }
+        s =  s+ch;
+    }
+
+console.log(s);
+
+-----------------------------------------------------------------------------
+
+var num:number[] = [10,20,40,50,100,15];
+
+var cities:Array<string> = ["Mumbai","Pune","Nagpur","Delhi"];
+
+var randomdata: any[] = [10,"david",20,"sam",50, true];
+
+console.log(num[4]);
+
+    for(var i=0; i<cities.length;i++)
+    {
+        console.log(cities[i]);
+    }
+
+    for(var x of cities)
+    {
+        console.log(x);
+    }
+
+---------------------------------------------------------------------------------
+
+var num:number[] = [10,20,40,50,100,15];
+var cities:Array<string> = ["Mumbai","Pune","Nagpur","Delhi"];
+var randomdata: any[] = [10,"david",20,"sam",50, true];
+
+var r2 = num.pop();
+console.log(r2);
+console.log(num);
+
+num.push(200);
+console.log(num);
+
+console.log(num.sort());
+
+console.log(cities.indexOf("Delhi"));
+
+console.log(cities.shift());
+console.log(cities);
+
+// console.log(cities.includes("Pune"));
+
+========================================================================================================
+
+11th April
+
+class Parent {
+
+    a: number = 10;
+
+    farm()
+    {
+        console.log("Parent's farm");
+    }
+
+    home(){
+        console.log("Parent's home");
+    }
+}
+
+class Child extends Parent{
+
+    flat() {
+        console.log("Child's flat");
+    }
+
+    bike() {
+        console.log("child's bike");
+    }
+}
+
+var xy:any = new Child();
+
+xy.farm();
+xy.home();
+xy.flat();
+xy.bike();
+this.a;
+
+------------------------------------------------------------------------------------------
+
+class abc {
+
+    sample1() {
+        console.log("Sample1 from abc");
+    }
+}
+
+class bcd extends abc{
+
+    sample2() {
+        console.log("Sample2 from bcd");
+    }
+}
+
+class cde extends bcd{
+
+    sample3() {
+        console.log("Sample3 from cde");
+    }
+}
+
+class def extends cde {
+
+    sample4() {
+        console.log("Sample4 from def");
+    }
+}
+
+var df:any = new def();
+
+df.sample1();
+df.sample2();
+df.sample3();
+df.sample4();
+
+-----------------------------------------------------------------------------
+
+class RBI {
+
+    sample1() {
+        console.log("Sample1 from abc1");
+    }
+}
+
+class SBI extends RBI{
+
+    sample2() {
+        console.log("Sample2 from bcd1");
+    }
+}
+
+class KOTAK extends RBI {
+
+    sample3() {
+        console.log("Sample3 from cde1");
+    }
+}
+
+var sb1:any = new SBI();
+sb1.sample1();
+sb1.sample2();
+// sb1.sample3();
+
+-------------------------------------------------------------------------------
+
+function add(a:number,b:number):number;
+
+function add(a:string,b:string):string;
+
+function add(a:string):string;
+
+function add(a:any,b:any):any{
+    return a+b;
+}
+
+
+// function add(a:number,b:number){
+//     console.log(a+b);
+// }
+
+// function add(a:string,b:string) {
+//     console.log(a+b);
+// }
+
+var a1 = add(10,20);
+console.log(a1);
+
+-------------------------------------------------------------------------------------
+
+class Sample8 {
+
+    add(a:number,b:number):number;
+    add(a:string,b:string):string;
+
+
+    add(a:any,b:any):any {
+        return a+b;
+    }
+
+
+    // add(a:number,b:number): number{
+
+    //     return a + b;
+    // }
+
+    // add(a:string,b:string): string{
+
+    //     return a + b;
+    // }
+}
+
+var s8 = new Sample8();
+var r11 = s8.add(10,20);
+console.log(r11);
+
+var r12 = s8.add("Hi","Sam");
+console.log(r12);
+
+--------------------------------------------------------------------------------------------
+
+class Sample11 {
+
+    add(a:number){
+        console.log(a);
+        console.log("function from sample11");
+    }
+
+}
+
+class Sample12 extends Sample11{
+
+    add(b:number){
+        console.log(b);
+        console.log("function from sample12");
+    }
+}
+
+var s12 = new Sample12();
+s12.add(10);
+
+var s11 = new Sample11();
+s11.add(12);
+
+========================================================================================================================
+
+12th April
+
+abstract class Vehicle {
+
+    no_of_wheels: number = 4;
+    name: string = "BMW";
+
+    abstract run():void;
+
+    abstract start():string;
+
+    stop() {
+        console.log("Vehicle stopped");
+    }
+}
+
+class BMW extends Vehicle {
+
+    run(): void {
+        console.log("Vehicle running");
+    }
+    start(): string {
+        return "Vehicle started with keys";
+    }  
+}
+
+var bmw = new BMW();
+console.log(bmw.no_of_wheels);
+console.log(bmw.name);
+bmw.stop();
+bmw.run();
+console.log(bmw.start);
+
+------------------------------------------------------------------------------
+
+interface Vehicle1 {
+
+    a: number;
+    b: string;
+
+    test1():void;
+
+    test2():void;
+
+}
+
+class Audi implements Vehicle1 {
+    a: number = 101;
+    b: string = "Harry";
+    test1(): void {
+       console.log("test1");
+    }
+    test2(): void {
+        console.log("test2");
+    }
+}
+
+var audi = new Audi();
+console.log(audi.a);
+console.log(audi.b);
+audi.test1();
+audi.test2();
+
+--------------------------------------------------------------------------------
+
+class Bank {
+
+    private balance: number = 15000;
+
+    deposit(b: number) {
+        this.balance = this.balance + b;
+    }
+
+    withdraw(b: number) {
+        this.balance = this.balance - b;
+    }
+
+    checkBalance():number {
+        return this.balance
+    }
+}
+
+var bank = new Bank();
+console.log(bank.checkBalance());
+
+bank.deposit(10000);
+console.log(bank.checkBalance());

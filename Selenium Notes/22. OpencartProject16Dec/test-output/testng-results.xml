@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2024-03-14T09:30:06 IST" name="Default suite" finished-at="2024-03-14T09:30:14 IST" duration-ms="7630">
+    <groups>
+    </groups>
+    <test started-at="2024-03-14T09:30:06 IST" name="Default test" finished-at="2024-03-14T09:30:14 IST" duration-ms="7630">
+      <class name="com.opencart.testlayer.RegisterTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.opencart.testlayer.RegisterTest@619713e5]" started-at="2024-03-14T09:30:06 IST" name="setUp" finished-at="2024-03-14T09:30:11 IST" duration-ms="4953" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="createAccount()[pri:0, instance:com.opencart.testlayer.RegisterTest@619713e5]" started-at="2024-03-14T09:30:11 IST" name="createAccount" finished-at="2024-03-14T09:30:14 IST" duration-ms="2646" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createAccount -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.opencart.testlayer.RegisterTest@619713e5]" started-at="2024-03-14T09:30:14 IST" name="tearDown" finished-at="2024-03-14T09:30:14 IST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.opencart.testlayer.RegisterTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
