@@ -1,0 +1,82 @@
+HTML Notes
+
+===============================================================================================================
+
+13th Feb
+
+<html>
+	<head>
+	</head>
+
+	<body>
+		<center>
+			<h1>"Lover's Paradise - India's Honeymoon capital"</h1>  
+			<p style="background-color:Tomato;"> With spectacular valleys, breathtaking views, snowcapped mountains, and lush forests of oak, deodar, and pine, Manali is a magical hill station at the northern end of Kullu valley in Himachal Pradesh. <br>
+Gifted to the world by the mighty Himalayas, it is known to be one of the most popular destinations for Honeymooners. Manali offers magnificent views of the Pir Panjal and the Dhauladhar ranges, covered in a thick blanket of snow for most of the year. 
+			</p>
+			<hr>
+			<marquee style="color:red;"> Plan Your Travel To Manali </marquee> 
+			<hr> 
+			<p> Over the last few years, Manali has evolved into a place loved by young people looking for more extended stays. With ambient cafes, good wifi availability, small eateries, and convenient shops, Old Manali is among the favorite neighborhood for such people. In addition, many homestays and hostels offer dorm beds for cheap for longer durations. 
+			</p>
+			<hr> <hr>
+			<p>Apart from vacations and workations, Manali is a must-visit for trekkers, as it's an excellent base for exploring this side of the Himalayas. River Beas provides great rafting options in the nearby town of Kullu. Adjoining the Parvati river lies the Parvati Valley, with  Kasol, Manikaran, Tosh, and small villages attracting travelers for extended stays. Atal Tunnel allows travelers to reach Sissu within a few hours, making Spiti more accessible. 
+			</p>
+			<br>
+			<a href = "https://www.holidify.com/places/manali/"> Click here for more info </a>
+			<hr> <hr>
+			<img src = "C:\Users\232338\OneDrive\Desktop\16Dec\MANALI1.jpeg" height = "300" width = "500">
+			<img src = "C:\Users\232338\OneDrive\Desktop\16Dec\manali2.jpg" height = "300" width = "500">
+		</center>
+	</body>
+</html>
+
+=================================================================================================================
+
+14th Feb
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Student Reg. Form</title>
+	</head>
+	<body>
+		<center>
+		<h2> Student Register Form For Exam</h2>
+		<form>
+			Firstname : <input type="text" id = "36asgf" name = "fn"> <br> <br>
+			Lastname : <input type="text" id = "dfji323" name = "ln"> <br> <br>
+			Email ID : <input type="text" id = "dasdh323" name = "email" class = "dsah"> <br> <br>
+			Mobile No.: <input type="password" name = "fdhjf" id = "dfjhi3" class = "dfshadih"> <br> <br>
+
+			Select Lang. :- 
+			English <input type="checkbox" name="gausd" id = "dhwiqy">
+			Marathi <input type="checkbox" name="dahiuh" id = "dsajo">
+			Hindi <input type="checkbox" name="adheih" id = "sdjjju"> <br> <br>
+
+
+			Select Gender :- 
+			Male <input type="radio" name="genderxyz" id = "fdsshdsikh">
+			Female <input type="radio" name="genderxyz">
+			Custom <input type="radio" name="genderxyz">  <br> <br>
+
+			Select City :- 
+			<select>
+				<option>Mumbai</option>
+				<option>Pune </option>
+				<option>Delhi</option>
+				<option>Hyderbad</option>
+			</select>
+
+			<br> <br>
+
+			<input type="button" name="" value = "Submit">
+
+
+		</form>
+		</center>
+	</body>
+</html>
+
+=========================================================================================================================
+
